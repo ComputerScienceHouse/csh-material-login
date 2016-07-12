@@ -1,0 +1,88 @@
+@import "csh-material-bootstrap.min";
+
+html {
+  min-height: 100%;
+}
+
+body.default {
+  background: #b0197e linear-gradient(#430a30, #b0197e) no-repeat;
+}
+
+body.original {
+  background: #b0197e url('images/original.png') no-repeat;
+  background-size: cover;
+}
+
+body.custom {
+  background: #b0197e no-repeat;
+  background-size: cover;
+}
+
+#login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container {
+  text-align: center;
+  max-width: 500px !important;
+}
+
+.panel {
+  pointer-events: auto;
+}
+
+.logo {
+  max-width: 300px;
+  margin-bottom: 30px;
+}
+
+.panel-body {
+  padding: 40px 50px 50px 50px;
+  text-align: left;
+}
+
+.error {
+  color: #ff0000;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.login-actions .checkbox {
+  float: left;
+}
+
+.login-actions .btn {
+  float: right;
+}
+
+.preferences {
+  &-toggle {
+    line-height: 24px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+
+    & button {
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      color: #ffffff;
+      box-shadow: none !important;
+    }
+
+    & ul.dropdown-menu {
+      width: 175px;
+    }
+  }
+}
+
+.dropdown-menu .checkbox,
+.dropdown-menu .radio {
+  padding: 3px 20px;
+}

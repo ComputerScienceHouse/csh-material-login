@@ -1,0 +1,25 @@
+{
+  "name": "csh-oxauth",
+  "authors": [
+    "Steven Mirabito <smirabito@csh.rit.edu>"
+  ],
+  "description": "CSH theme for oxAuth",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://csh.rit.edu/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "csh-material-bootstrap": "*",
+    "jquery": "^3.1.0",
+    "particles.js": "^2.0.0",
+    "jquery-storage-api": "julien-maurel/jQuery-Storage-API#^1.9.1"
+  }
+}
