@@ -1,6 +1,5 @@
-CSH oxAuth
-===========
-An [oxAuth](https://github.com/GluuFederation/oxAuth) theme for [Computer Science House](http://csh.rit.edu).
+# CSH Material Login
+A material login theme for [Computer Science House](http://csh.rit.edu).
 
 Installation
 -------------
