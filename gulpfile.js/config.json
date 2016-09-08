@@ -1,14 +1,18 @@
 {
   "root": {
     "src": "./src",
-    "dest": "./public"
+    "dest": "./dist"
   },
 
   "tasks": {
     "browserSync": {
       "server": {
-        "baseDir": "public"
+        "baseDir": "dist"
       }
+    },
+
+    "watch": {
+      "tasks": ["images", "css", "html", "fonts", "eslint", "sasslint"]
     },
 
     "static": {
@@ -17,8 +21,8 @@
     },
 
     "js": {
-      "src": "javascripts",
-      "dest": "javascripts",
+      "src": "javascript",
+      "dest": "assets/js",
       "entries": {
         "app": ["./app.js"]
       },
@@ -29,18 +33,41 @@
       },
       "extractSharedJs": false
     },
+
+    "eslint": {
+      "src": "javascript",
+      "extensions": ["js", "json"]
+    },
+    
+    "sasslint": {
+      "src": "stylesheets",
+      "extensions": ["sass", "scss"]
+    },
+    
+    "csscomb": {
+      "src": "stylesheets",
+      "extensions": ["sass", "scss"]
+    },
+
     "css": {
       "src": "stylesheets",
-      "dest": "stylesheets",
+      "dest": "assets/css",
       "autoprefixer": {
         "browsers": ["last 3 version"]
       },
       "sass": {
         "includePaths": [
-          "./bower_components/csh-material-bootstrap/dist"
+          "./node_modules/csh-material-bootstrap/dist/css"
         ]
       },
       "extensions": ["sass", "scss", "css"]
+    },
+
+    "fonts": {
+      "src": "fonts",
+      "dest": "assets/fonts",
+      "vendor": ["./node_modules/csh-material-bootstrap/dist/fonts"],
+      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
     },
 
     "html": {
@@ -51,19 +78,13 @@
         "collapseWhitespace": true
       },
       "extensions": ["html", "json"],
-      "excludeFolders": ["layouts", "shared", "components", "data"]
+      "excludeFolders": ["layouts", "shared", "macros", "data", "components"]
     },
 
     "images": {
       "src": "images",
-      "dest": "images",
+      "dest": "assets/images",
       "extensions": ["jpg", "png", "svg", "gif"]
-    },
-
-    "fonts": {
-      "src": "fonts",
-      "dest": "fonts",
-      "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
     },
 
     "production" : {

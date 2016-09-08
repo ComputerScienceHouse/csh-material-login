@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{{ title }}{% endblock %}</title>
-    <link rel="stylesheet" href="stylesheets/app.css">
+    <link rel="stylesheet" href="assets/css/app.css">
     {% include "shared/app-icons.html" %}
     {% block head %}{% endblock %}
 </head>
 <body class="default" id="particles">
 {% block content %}{% endblock %}
 {% block javascript %}
-<script src="javascripts/app.js"></script>
+<script src="assets/js/app.js"></script>
 {% endblock %}
 </body>
 </html>

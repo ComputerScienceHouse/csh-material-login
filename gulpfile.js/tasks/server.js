@@ -1,34 +1,23 @@
-var compress = require('compression')
-var config   = require('../config')
-var express  = require('express')
-var gulp     = require('gulp')
-var gutil    = require('gulp-util')
-var logger   = require('morgan')
-var open     = require('open')
-var path     = require('path')
+var config = require('../config');
+var gulp = require('gulp');
+var gutil = require('gulp-util');
+var spawn = require('child_process').spawn;
 
-var settings = {
-  root: path.resolve(process.cwd(), config.root.dest),
-  port: process.env.PORT || 5000,
-  logLevel: process.env.NODE_ENV ? 'combined' : 'dev',
-  staticOptions: {
-    extensions: ['html'],
-    maxAge: '31556926'
-  }
-}
+var serverTask = function () {
+    var server = spawn(config.tasks.server.command, config.tasks.server.arguments);
 
-var serverTask = function() {
-  var url = 'http://localhost:' + settings.port
+    server.stdout.on('data', function (data) {
+        gutil.log(gutil.colors.blue(data));
+    });
 
-  express()
-    .use(compress())
-    .use(logger(settings.logLevel))
-    .use('/', express.static(settings.root, settings.staticOptions))
-    .listen(settings.port)
+    server.stderr.on('data', function (data) {
+        gutil.log(gutil.colors.blue(data));
+    });
 
-  gutil.log('production server started on ' + gutil.colors.green(url))
-  open(url)
-}
+    server.on('exit', function (code) {
+        gutil.log(gutil.colors.red('Python server stopped: child process exited with code ' + code));
+    });
+};
 
-gulp.task('server', serverTask)
-module.exports = serverTask
+gulp.task('server', serverTask);
+module.exports = serverTask;

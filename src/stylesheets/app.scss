@@ -1,36 +1,39 @@
-@import "csh-material-bootstrap.min";
+@import 'csh-material-bootstrap';
 
 html {
   min-height: 100%;
 }
 
-body.default {
-  background: #b0197e linear-gradient(#430a30, #b0197e) no-repeat;
+body {
+  &.default {
+    background: #b0197e linear-gradient(#430a30, #b0197e) no-repeat;
+  }
+
+  &.original {
+    background: #b0197e url('images/original.png') no-repeat;
+    background-size: cover;
+  }
+
+  &.custom {
+    background: #b0197e no-repeat;
+    background-size: cover;
+  }
 }
 
-body.original {
-  background: #b0197e url('images/original.png') no-repeat;
-  background-size: cover;
-}
-
-body.custom {
-  background: #b0197e no-repeat;
-  background-size: cover;
-}
-
-#login {
+.login {
   display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   width: 100%;
   height: 100%;
+
   pointer-events: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-  text-align: center;
   max-width: 500px !important;
+  text-align: center;
 }
 
 .panel {
@@ -38,51 +41,57 @@ body.custom {
 }
 
 .logo {
-  max-width: 300px;
   margin-bottom: 30px;
+  max-width: 300px;
 }
 
 .panel-body {
-  padding: 40px 50px 50px 50px;
+  padding: 40px 50px 50px;
   text-align: left;
 }
 
 .error {
-  color: #ff0000;
-  margin-bottom: 20px;
   display: inline-block;
+  margin-bottom: 20px;
+  color: #f00;
 }
 
-.login-actions .checkbox {
-  float: left;
-}
+.login-actions {
+  .checkbox {
+    float: left;
+  }
 
-.login-actions .btn {
-  float: right;
+  .btn {
+    float: right;
+  }
 }
 
 .preferences {
   &-toggle {
-    line-height: 24px;
     position: absolute;
     right: 5px;
     bottom: 5px;
+    line-height: 24px;
 
     & button {
-      background: transparent;
-      border: none;
-      font-size: 24px;
-      color: #ffffff;
+      border: 0;
       box-shadow: none !important;
+      background: transparent;
+      color: #fff;
+      font-size: 24px;
     }
 
-    & ul.dropdown-menu {
-      width: 175px;
+    & ul {
+      .dropdown-menu {
+        width: 175px;
+      }
     }
   }
 }
 
-.dropdown-menu .checkbox,
-.dropdown-menu .radio {
-  padding: 3px 20px;
+.dropdown-menu {
+  .checkbox,
+  .radio {
+    padding: 3px 20px;
+  }
 }
