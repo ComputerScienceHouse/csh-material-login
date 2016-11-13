@@ -1,14 +1,15 @@
 {
   "root": {
     "src": "./src",
-    "dest": "./dist"
+    "dest": "./dist/theme/csh"
   },
 
   "tasks": {
     "browserSync": {
       "server": {
-        "baseDir": "dist"
-      }
+        "baseDir": "dist/theme/csh"
+      },
+      "startPath": "login/preview.html"
     },
 
     "watch": {
@@ -16,15 +17,15 @@
     },
 
     "static": {
-      "src": "static",
+      "src": "./",
       "dest": "./"
     },
 
     "js": {
-      "src": "javascript",
-      "dest": "assets/js",
+      "src": "login/resources/js",
+      "dest": "login/resources/js",
       "entries": {
-        "app": ["./app.js"]
+        "themes": ["./themes.js"]
       },
       "extensions": ["js", "json"],
       "babel": {
@@ -35,55 +36,62 @@
     },
 
     "eslint": {
-      "src": "javascript",
-      "extensions": ["js", "json"]
+      "src": "./",
+      "extensions": ["js"]
     },
     
     "sasslint": {
-      "src": "stylesheets",
+      "src": "./",
       "extensions": ["sass", "scss"]
     },
     
     "csscomb": {
-      "src": "stylesheets",
+      "src": "./",
       "extensions": ["sass", "scss"]
     },
 
     "css": {
-      "src": "stylesheets",
-      "dest": "assets/css",
+      "src": "./",
+      "dest": "./",
       "autoprefixer": {
         "browsers": ["last 3 version"]
       },
       "sass": {
         "includePaths": [
-          "./node_modules/csh-material-bootstrap/dist/css"
+          "./node_modules/csh-material-bootstrap/dist/css",
+          "./node_modules/css-social-buttons/css"
         ]
       },
+      "replace": [
+        ["./zocial", "../fonts/zocial/zocial"]
+      ],
       "extensions": ["sass", "scss", "css"]
     },
 
     "fonts": {
-      "src": "fonts",
-      "dest": "assets/fonts",
-      "vendor": ["./node_modules/csh-material-bootstrap/dist/fonts"],
+      "src": "**/fonts",
+      "dest": "common/resources/fonts",
+      "vendor": [
+        ["./node_modules/csh-material-bootstrap/dist/fonts/bootstrap", "bootstrap"],
+        ["./node_modules/css-social-buttons/css", "zocial"]
+      ],
       "extensions": ["woff2", "woff", "eot", "ttf", "svg"]
     },
 
     "html": {
-      "src": "html",
+      "src": "./",
       "dest": "./",
       "dataFile": "data/global.json",
       "htmlmin": {
         "collapseWhitespace": true
       },
-      "extensions": ["html", "json"],
+      "extensions": ["html", "ftl"],
       "excludeFolders": ["layouts", "shared", "macros", "data", "components"]
     },
 
     "images": {
-      "src": "images",
-      "dest": "assets/images",
+      "src": "./",
+      "dest": "./",
       "extensions": ["jpg", "png", "svg", "gif"]
     },
 

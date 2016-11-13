@@ -1,5 +1,6 @@
 # Project-specific
-public
+dist
+preview
 
 # OS X
 *.DS_Store
@@ -112,6 +113,3 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
-
-# Project Files
-dist

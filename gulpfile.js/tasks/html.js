@@ -1,14 +1,12 @@
 var config = require('../config');
 
 var browserSync = require('browser-sync');
-var data = require('gulp-data');
 var gulp = require('gulp');
-var gulpif = require('gulp-if');
+// var gulpif = require('gulp-if');
 var handleErrors = require('../lib/handleErrors');
-var htmlmin = require('gulp-htmlmin');
+// var htmlmin = require('gulp-htmlmin');
 var path = require('path');
 var render = require('gulp-nunjucks-render');
-var fs = require('fs');
 
 var exclude = path.normalize('!**/{' +
   config.tasks.html.excludeFolders.join(',') + '}/**');
@@ -19,24 +17,21 @@ var paths = {
   dest: path.join(config.root.dest, config.tasks.html.dest)
 };
 
-var getData = function(file) {
-  var dataPath = path.resolve(config.root.src,
-    config.tasks.html.src, config.tasks.html.dataFile);
-  return JSON.parse(fs.readFileSync(dataPath, 'utf8'));
-};
+// Ignore Freemarker template tags
+// config.tasks.html.htmlmin.ignoreCustomFragments = [/<[\/]?#[\s\S]*?>/];
 
 var htmlTask = function() {
   return gulp.src(paths.src)
-    .pipe(data(getData))
     .on('error', handleErrors)
     .pipe(render({
+      inheritExtension: true,
       path: [path.join(config.root.src, config.tasks.html.src)],
       envOptions: {
         watch: false
       }
     }))
     .on('error', handleErrors)
-    .pipe(gulpif(global.production, htmlmin(config.tasks.html.htmlmin)))
+    // .pipe(gulpif(global.production, htmlmin(config.tasks.html.htmlmin)))
     .pipe(gulp.dest(paths.dest))
     .on('end', browserSync.reload);
 };

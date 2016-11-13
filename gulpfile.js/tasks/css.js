@@ -8,6 +8,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var handleErrors = require('../lib/handleErrors');
 var autoprefixer = require('gulp-autoprefixer');
 var path = require('path');
+var replace = require('gulp-batch-replace');
 var cssnano = require('gulp-cssnano');
 
 var paths = {
@@ -21,6 +22,8 @@ var cssTask = function() {
     .pipe(gulpif(!global.production, sourcemaps.init()))
     .pipe(sass(config.tasks.css.sass))
     .on('error', handleErrors)
+    .pipe(gulpif(config.tasks.css.replace.constructor === Array,
+      replace(config.tasks.css.replace)))
     .pipe(autoprefixer(config.tasks.css.autoprefixer))
     .pipe(gulpif(global.production, cssnano({autoprefixer: false})))
     .pipe(gulpif(!global.production, sourcemaps.write()))

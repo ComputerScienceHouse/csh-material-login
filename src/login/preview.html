@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Computer Science House</title>
+        <link rel="stylesheet" href="resources/css/login.css">
+    </head>
+    <body class="default">
+        <section class="login">
+            <div class="container">
+                <img class="logo" src="../common/resources/img/logo.svg" alt="Computer Science House">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <span class="error">Please use correct username and password</span>
+                        <div class="form-group">
+                            <label class="control-label" for="username">Username</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="password">Password</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="login-actions">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Stay signed in?
+                                </label>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-lg">Sign in</a>
+                        </div>
+                    </div>
+                    <div class="panel-footer">Forgot your password?</div>
+                </div>
+            </div>
+        </section>
+        <div class="btn-group dropup preferences-toggle">
+            <button id="preferences-toggle" type="button" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-cog"></span>
+                <span class="sr-only">Preferences</span>
+            </button>
+            <ul class="dropdown-menu pull-right">
+                <li class="checkbox">
+                    <label>
+                        <input type="checkbox" id="prefShowParticles"> Show Particles
+                    </label>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li class="radio">
+                    <label>
+                        <input type="radio" name="background" id="prefBackground-default" value="default">
+                        Default
+                    </label>
+                </li>
+                <li class="radio">
+                    <label>
+                        <input type="radio" name="background" id="prefBackground-original" value="original">
+                        Original Photo
+                    </label>
+                </li>
+                <li class="radio">
+                    <label>
+                        <input type="radio" name="background" id="prefBackground-custom" value="custom">
+                        Custom
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <script src="resources/js/themes.js"></script>
+    </body>
+</html>

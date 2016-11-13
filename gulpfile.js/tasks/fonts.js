@@ -14,17 +14,21 @@ var paths = {
 var fontsTask = function() {
   var globs = [paths.src, '*!README.md'];
 
-  if (typeof config.tasks.fonts.vendor !== "undefined" &&
-    config.tasks.fonts.vendor.length > 0) {
+  if (config.tasks.fonts.vendor.constructor === Array) {
     for (var i = 0; i < config.tasks.fonts.vendor.length; i++) {
-      var vendorPath = path.join(config.tasks.fonts.vendor[i],
+      var vendorSrc = path.join(config.tasks.fonts.vendor[i][0],
         '/**/*.{' + config.tasks.fonts.extensions + '}');
-      globs.push(vendorPath);
+      var vendorDest = path.join(paths.dest, config.tasks.fonts.vendor[i][1]);
+
+      gulp.src(vendorSrc)
+        .pipe(changed(vendorDest))
+        .pipe(gulp.dest(vendorDest))
+        .pipe(browserSync.stream());
     }
   }
 
   return gulp.src(globs)
-    .pipe(changed(paths.dest)) // Ignore unchanged files
+    .pipe(changed(paths.dest))
     .pipe(gulp.dest(paths.dest))
     .pipe(browserSync.stream());
 };

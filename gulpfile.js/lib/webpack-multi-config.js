@@ -28,11 +28,12 @@ var webpackConfig = function(env) {
       loaders: [
         {
           test: /\.js$/,
+          exclude: /node_modules/,
           loader: 'babel-loader',
           query: config.tasks.js.babel
         },
         {
-          test: /enumify/,
+          test: /(enumify|es6-store)/,
           loader: 'babel-loader',
           query: config.tasks.js.babel
         },
