@@ -4,15 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="robots" content="noindex, nofollow">
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
-    <title><#nested "title"></title>
+    <title><#compress><#nested "title"></#compress></title>
 
-    <link href="${url.resourcesPath}/css/login.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="${url.resourcesPath}/css/login.css">
 
-    {% include "login/components/favicon.html" %}
+    {% include "login/components/favicon.ftl" %}
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     <#if realm.internationalizationEnabled>
@@ -44,16 +50,15 @@
                             ${message.summary}
                         </div>
                     </#if>
+                    <#if displayInfo>
+                        <#nested "info">
+                    </#if>
                     <#nested "form">
                 </div>
                 <#nested "footer">
             </div>
         </div>
     </section>
-
-    <#if displayInfo>
-        <#nested "info">
-    </#if>
 
     <#if properties.scripts?has_content>
         <#list properties.scripts?split(' ') as script>
