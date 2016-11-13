@@ -51,7 +51,9 @@
                         </div>
                     </#if>
                     <#if displayInfo>
-                        <#nested "info">
+                        <div class="feedback">
+                            <#nested "info">
+                        </div>
                     </#if>
                     <#nested "form">
                 </div>

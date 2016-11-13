@@ -40,7 +40,6 @@ body {
 }
 
 .feedback {
-  display: inline-block;
   margin-bottom: 20px;
 
   &-success {
@@ -61,11 +60,11 @@ body {
 }
 
 .login-actions {
-  .checkbox {
+  &-left {
     float: left;
   }
 
-  .btn {
+  &-right {
     float: right;
   }
 }

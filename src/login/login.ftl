@@ -15,10 +15,11 @@
             </div>
             <div class="form-group">
                 <label class="control-label" for="password">${msg("password")}</label>
-                <input type="password" class="form-control" id="password" name="password" autocomplete="off"/>
+                <input type="password" class="form-control" id="password" name="password" autocomplete="off">
             </div>
             <div class="login-actions">
                 <#if realm.rememberMe && !usernameEditDisabled??>
+                <div class="login-actions-left">
                     <div class="checkbox">
                         <label>
                             <#if login.rememberMe??>
@@ -28,9 +29,11 @@
                             </#if>
                         </label>
                     </div>
-
+                </div>
                 </#if>
-                <input class="btn btn-primary btn-lg" name="login" type="submit" value="${msg("doLogIn")}"/>
+                <div class="login-actions-right">
+                    <input class="btn btn-primary btn-lg" name="login" type="submit" value="${msg("doLogIn")}">
+                </div>
             </div>
         </form>
         </#if>
