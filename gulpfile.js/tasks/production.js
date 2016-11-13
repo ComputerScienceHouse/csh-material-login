@@ -6,9 +6,9 @@ var getEnabledTasks = require('../lib/getEnabledTasks');
 var productionTask = function(cb) {
   global.production = true;
   var tasks = getEnabledTasks('production');
-  gulpSequence(tasks.initTasks, tasks.linterTasks, tasks.assetTasks,
+  gulpSequence('clean', tasks.initTasks, tasks.linterTasks, tasks.assetTasks,
     tasks.codeTasks, config.tasks.production.rev ? 'rev' : false,
-    'size-report', 'static', cb);
+    'size-report', 'static', 'manifest', 'package', cb);
 };
 
 gulp.task('production', productionTask);
