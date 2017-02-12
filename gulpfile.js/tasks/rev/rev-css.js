@@ -1,8 +1,8 @@
-var config = require('../../config');
-var gulp = require('gulp');
-var path = require('path');
-var rev = require('gulp-rev');
-var revNapkin = require('gulp-rev-napkin');
+let config = require('../../config');
+let gulp = require('gulp');
+let path = require('path');
+let rev = require('gulp-rev');
+let revNapkin = require('gulp-rev-napkin');
 
 // 4) Rev and compress CSS and JS files (this is done after assets, so that if a
 //    referenced asset hash changes, the parent hash will change as well

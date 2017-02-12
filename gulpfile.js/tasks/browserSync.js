@@ -1,30 +1,30 @@
-var browserSync = require('browser-sync');
-var gulp = require('gulp');
-var webpack = require('webpack');
-var webpackMultiConfig = require('../lib/webpack-multi-config');
-var config = require('../config');
-var pathToUrl = require('../lib/pathToUrl');
+let browserSync = require('browser-sync');
+let gulp = require('gulp');
+let webpack = require('webpack');
+let webpackMultiConfig = require('../lib/webpack-multi-config');
+let config = require('../config');
+let pathToUrl = require('../lib/pathToUrl');
 
-var browserSyncTask = function() {
-  var webpackConfig = webpackMultiConfig('development');
-  var compiler = webpack(webpackConfig);
-  var proxyConfig = config.tasks.browserSync.proxy || null;
+let browserSyncTask = function() {
+  let webpackConfig = webpackMultiConfig('development');
+  let compiler = webpack(webpackConfig);
+  let proxyConfig = config.tasks.browserSync.proxy || null;
 
   if (typeof (proxyConfig) === 'string') {
     config.tasks.browserSync.proxy = {
-      target: proxyConfig
+      target: proxyConfig,
     };
   }
 
-  var server = config.tasks.browserSync.proxy ||
+  let server = config.tasks.browserSync.proxy ||
     config.tasks.browserSync.server;
 
   server.middleware = [
     require('webpack-dev-middleware')(compiler, {
       stats: 'errors-only',
-      publicPath: pathToUrl('/', webpackConfig.output.publicPath)
+      publicPath: pathToUrl('/', webpackConfig.output.publicPath),
     }),
-    require('webpack-hot-middleware')(compiler)
+    require('webpack-hot-middleware')(compiler),
   ];
 
   browserSync.init(config.tasks.browserSync);

@@ -1,11 +1,11 @@
-var config = require('../config');
-var gulp = require('gulp');
-var gulpSequence = require('gulp-sequence');
-var getEnabledTasks = require('../lib/getEnabledTasks');
+let config = require('../config');
+let gulp = require('gulp');
+let gulpSequence = require('gulp-sequence');
+let getEnabledTasks = require('../lib/getEnabledTasks');
 
-var productionTask = function(cb) {
+let productionTask = function(cb) {
   global.production = true;
-  var tasks = getEnabledTasks('production');
+  let tasks = getEnabledTasks('production');
   gulpSequence('clean', tasks.initTasks, tasks.linterTasks, tasks.assetTasks,
     tasks.codeTasks, config.tasks.production.rev ? 'rev' : false,
     'size-report', 'static', 'manifest', 'package', cb);

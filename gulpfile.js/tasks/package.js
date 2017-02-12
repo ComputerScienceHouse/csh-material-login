@@ -1,8 +1,8 @@
-var config = require('../config');
-var path = require('path');
-var gulp = require('gulp');
-var zip = require('gulp-zip');
-var msg = require('gulp-msg');
+let config = require('../config');
+let path = require('path');
+let gulp = require('gulp');
+let zip = require('gulp-zip');
+let msg = require('gulp-msg');
 
 gulp.task('package', function() {
   return gulp.src(path.join(config.root.destRoot, '**/*'))
@@ -10,7 +10,7 @@ gulp.task('package', function() {
     .pipe(gulp.dest(config.root.destRoot))
     .pipe(msg.flush.note('=================================================='))
     .pipe(msg.flush.success('Theme archive saved to <%= zipPath %>',
-      {zipPath: path.join(config.root.destRoot, "theme.zip")}))
+      {zipPath: path.join(config.root.destRoot, 'theme.zip')}))
     .pipe(msg.flush.success('To deploy to Keycloak, see: https://goo.gl/aWvYU4'))
     .pipe(msg.flush.note('=================================================='));
 });

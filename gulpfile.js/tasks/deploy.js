@@ -1,20 +1,20 @@
-var config = require('../config');
-var ghPages = require('gulp-gh-pages');
-var gulp = require('gulp');
-var open = require('open');
-var os = require('os');
-var packageJson = require('../../package.json');
-var path = require('path');
+let config = require('../config');
+let ghPages = require('gulp-gh-pages');
+let gulp = require('gulp');
+let open = require('open');
+let os = require('os');
+let packageJson = require('../../package.json');
+let path = require('path');
 
-var settings = {
+let settings = {
   url: packageJson.homepage,
   src: path.join(config.root.dest, '/**/*'),
   ghPages: {
-    cacheDir: path.join(os.tmpdir(), packageJson.name)
-  }
+    cacheDir: path.join(os.tmpdir(), packageJson.name),
+  },
 };
 
-var deployTask = function() {
+let deployTask = function() {
   return gulp.src(settings.src)
     .pipe(ghPages(settings.ghPages))
     .on('end', function() {

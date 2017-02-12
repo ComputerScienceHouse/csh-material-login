@@ -1,23 +1,23 @@
-var config = require('../config');
+let config = require('../config');
 
-var gulp = require('gulp');
-var gulpif = require('gulp-if');
-var browserSync = require('browser-sync');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
-var handleErrors = require('../lib/handleErrors');
-var autoprefixer = require('gulp-autoprefixer');
-var path = require('path');
-var replace = require('gulp-batch-replace');
-var cssnano = require('gulp-cssnano');
+let gulp = require('gulp');
+let gulpif = require('gulp-if');
+let browserSync = require('browser-sync');
+let sass = require('gulp-sass');
+let sourcemaps = require('gulp-sourcemaps');
+let handleErrors = require('../lib/handleErrors');
+let autoprefixer = require('gulp-autoprefixer');
+let path = require('path');
+let replace = require('gulp-batch-replace');
+let cssnano = require('gulp-cssnano');
 
-var paths = {
+let paths = {
   src: path.join(config.root.src, config.tasks.css.src,
     '/**/*.{' + config.tasks.css.extensions + '}'),
-  dest: path.join(config.root.dest, config.tasks.css.dest)
+  dest: path.join(config.root.dest, config.tasks.css.dest),
 };
 
-var cssTask = function() {
+let cssTask = function() {
   return gulp.src(paths.src)
     .pipe(gulpif(!global.production, sourcemaps.init()))
     .pipe(sass(config.tasks.css.sass))

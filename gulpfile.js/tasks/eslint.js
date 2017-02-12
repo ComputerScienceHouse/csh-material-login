@@ -1,19 +1,19 @@
-var config = require('../config');
+let config = require('../config');
 
-var eslint = require('gulp-eslint');
-var gulp = require('gulp');
-var path = require('path');
-var _ = require('lodash');
+let eslint = require('gulp-eslint');
+let gulp = require('gulp');
+let path = require('path');
+let _ = require('lodash');
 
-var eslintTask = function() {
-  var globs = [path.join(config.root.src,
+let eslintTask = function() {
+  let globs = [path.join(config.root.src,
     config.tasks.eslint.src, '/**/*.{' + config.tasks.eslint.extensions + '}')];
 
   if (!_.isUndefined(config.tasks.eslint.exclude) &&
     _.isArray(config.tasks.eslint.exclude) &&
     config.tasks.eslint.exclude.length > 0) {
-    for (var i = 0; i < config.tasks.eslint.exclude.length; i++) {
-      var excludePath = '!' + path.join(config.root.src,
+    for (let i = 0; i < config.tasks.eslint.exclude.length; i++) {
+      let excludePath = '!' + path.join(config.root.src,
           config.tasks.eslint.src, config.tasks.eslint.exclude[i]);
       globs.push(excludePath);
     }

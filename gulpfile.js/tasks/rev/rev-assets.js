@@ -1,9 +1,9 @@
-var config = require('../../config');
-var gulp = require('gulp');
-var fs = require('fs');
-var path = require('path');
-var rev = require('gulp-rev');
-var revNapkin = require('gulp-rev-napkin');
+let config = require('../../config');
+let gulp = require('gulp');
+let fs = require('fs');
+let path = require('path');
+let rev = require('gulp-rev');
+let revNapkin = require('gulp-rev-napkin');
 
 function getDirectories() {
   return fs.readdirSync(config.root.dest).filter(function(file) {
@@ -14,19 +14,19 @@ function getDirectories() {
 // 1) Add md5 hashes to assets referenced by CSS and JS files
 gulp.task('rev-assets', function() {
   // Ignore files that may reference assets. We'll rev them next.
-  var extToIgnore = [];
+  let extToIgnore = [];
   ['html', 'css', 'js'].forEach(function(task) {
     if (config.tasks.hasOwnProperty(task) &&
-      config.tasks[task].hasOwnProperty("extensions")) {
+      config.tasks[task].hasOwnProperty('extensions')) {
       extToIgnore = extToIgnore.concat(config.tasks[task].extensions);
     }
   });
 
-  var ignoreThese = '!' +
+  let ignoreThese = '!' +
     path.join(config.root.dest, '/**/*.{' + extToIgnore + '}');
 
-  var toRev = getDirectories();
-  var commonIndex = toRev.indexOf('common');
+  let toRev = getDirectories();
+  let commonIndex = toRev.indexOf('common');
   if (commonIndex > -1) {
     toRev.splice(commonIndex, 1);
   }

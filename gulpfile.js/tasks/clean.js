@@ -1,8 +1,8 @@
-var gulp = require('gulp');
-var del = require('del');
-var config = require('../config');
+let gulp = require('gulp');
+let del = require('del');
+let config = require('../config');
 
-var cleanTask = function(cb) {
+let cleanTask = function(cb) {
   del([config.root.destRoot]).then(function(paths) {
     cb();
   });

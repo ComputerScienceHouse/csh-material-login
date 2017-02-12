@@ -1,24 +1,24 @@
-var config = require('../config');
+let config = require('../config');
 
-var browserSync = require('browser-sync');
-var changed = require('gulp-changed');
-var gulp = require('gulp');
-var path = require('path');
+let browserSync = require('browser-sync');
+let changed = require('gulp-changed');
+let gulp = require('gulp');
+let path = require('path');
 
-var paths = {
+let paths = {
   src: path.join(config.root.src, config.tasks.fonts.src,
     '/**/*.{' + config.tasks.fonts.extensions + '}'),
-  dest: path.join(config.root.dest, config.tasks.fonts.dest)
+  dest: path.join(config.root.dest, config.tasks.fonts.dest),
 };
 
-var fontsTask = function() {
-  var globs = [paths.src, '*!README.md'];
+let fontsTask = function() {
+  let globs = [paths.src, '*!README.md'];
 
   if (config.tasks.fonts.vendor.constructor === Array) {
-    for (var i = 0; i < config.tasks.fonts.vendor.length; i++) {
-      var vendorSrc = path.join(config.tasks.fonts.vendor[i][0],
+    for (let i = 0; i < config.tasks.fonts.vendor.length; i++) {
+      let vendorSrc = path.join(config.tasks.fonts.vendor[i][0],
         '/**/*.{' + config.tasks.fonts.extensions + '}');
-      var vendorDest = path.join(paths.dest, config.tasks.fonts.vendor[i][1]);
+      let vendorDest = path.join(paths.dest, config.tasks.fonts.vendor[i][1]);
 
       gulp.src(vendorSrc)
         .pipe(changed(vendorDest))

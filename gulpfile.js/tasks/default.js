@@ -1,9 +1,9 @@
-var gulp = require('gulp');
-var gulpSequence = require('gulp-sequence');
-var getEnabledTasks = require('../lib/getEnabledTasks');
+let gulp = require('gulp');
+let gulpSequence = require('gulp-sequence');
+let getEnabledTasks = require('../lib/getEnabledTasks');
 
-var defaultTask = function(cb) {
-  var tasks = getEnabledTasks('watch');
+let defaultTask = function(cb) {
+  let tasks = getEnabledTasks('watch');
   gulpSequence(tasks.initTasks, tasks.linterTasks, tasks.assetTasks,
     tasks.codeTasks, 'static', 'watch', cb);
 };

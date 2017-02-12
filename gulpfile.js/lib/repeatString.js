@@ -1,5 +1,5 @@
 module.exports = function(pattern, number) {
-  var string = '';
+  let string = '';
   while (number > 0) {
     number--;
     string += pattern;

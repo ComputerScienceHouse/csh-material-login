@@ -1,11 +1,11 @@
-var config = require('../config');
+let config = require('../config');
 
-var webpackConfig = require('../lib/webpack-multi-config')('production');
-var gulp = require('gulp');
-var logger = require('../lib/compileLogger');
-var webpack = require('webpack');
+let webpackConfig = require('../lib/webpack-multi-config')('production');
+let gulp = require('gulp');
+let logger = require('../lib/compileLogger');
+let webpack = require('webpack');
 
-var webpackProductionTask = function(callback) {
+let webpackProductionTask = function(callback) {
   webpack(webpackConfig, function(err, stats) {
     logger(err, stats);
     callback();

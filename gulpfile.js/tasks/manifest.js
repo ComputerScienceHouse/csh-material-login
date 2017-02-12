@@ -1,7 +1,7 @@
-var config = require('../config');
-var gulp = require('gulp');
-var fs = require('fs');
-var path = require('path');
+let config = require('../config');
+let gulp = require('gulp');
+let fs = require('fs');
+let path = require('path');
 
 function getDirectories(root) {
   return fs.readdirSync(root).filter(function(file) {
@@ -10,24 +10,24 @@ function getDirectories(root) {
 }
 
 function getThemes() {
-  return getDirectories(path.join(config.root.destRoot, "theme"));
+  return getDirectories(path.join(config.root.destRoot, 'theme'));
 }
 
 function getThemeTypes(themeName) {
-  return getDirectories(path.join(config.root.destRoot, "theme", themeName));
+  return getDirectories(path.join(config.root.destRoot, 'theme', themeName));
 }
 
 gulp.task('manifest', function() {
-  var manifest = {themes: []};
+  let manifest = {themes: []};
 
   getThemes().forEach(function(theme) {
     manifest.themes.push({
       name: theme,
-      types: getThemeTypes(theme)
+      types: getThemeTypes(theme),
     });
   });
 
-  var manifestPath = path.join(config.root.destRoot, "META-INF");
+  let manifestPath = path.join(config.root.destRoot, 'META-INF');
   if (fs.existsSync(manifestPath)) {
     fs.rmdirSync(manifestPath);
   }
@@ -35,9 +35,9 @@ gulp.task('manifest', function() {
   fs.mkdirSync(manifestPath);
 
   return fs.writeFile(
-    path.join(manifestPath, "keycloak-themes.json"),
+    path.join(manifestPath, 'keycloak-themes.json'),
     JSON.stringify(manifest), 'utf8', function(err) {
       if (err)
-        return console.log("Unable to write Keycloak theme manifest: " + err);
+        return console.log('Unable to write Keycloak theme manifest: ' + err);
     });
 });

@@ -1,19 +1,19 @@
-var config = require('../config');
+let config = require('../config');
 
-var sassLint = require('gulp-sass-lint');
-var gulp = require('gulp');
-var path = require('path');
-var _ = require('lodash');
+let sassLint = require('gulp-sass-lint');
+let gulp = require('gulp');
+let path = require('path');
+let _ = require('lodash');
 
-var sasslintTask = function() {
-  var globs = [path.join(config.root.src, config.tasks.sasslint.src,
+let sasslintTask = function() {
+  let globs = [path.join(config.root.src, config.tasks.sasslint.src,
     '/**/*.{' + config.tasks.sasslint.extensions + '}')];
 
   if (!_.isUndefined(config.tasks.sasslint.exclude) &&
     _.isArray(config.tasks.sasslint.exclude) &&
     config.tasks.sasslint.exclude.length > 0) {
-    for (var i = 0; i < config.tasks.sasslint.exclude.length; i++) {
-      var excludePath = '!' + path.join(config.root.src,
+    for (let i = 0; i < config.tasks.sasslint.exclude.length; i++) {
+      let excludePath = '!' + path.join(config.root.src,
           config.tasks.sasslint.src, config.tasks.sasslint.exclude[i]);
       globs.push(excludePath);
     }
