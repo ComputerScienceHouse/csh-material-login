@@ -38,6 +38,8 @@
             "right",
             "bottom",
             "left",
+            "align-items",
+            "justify-content",
             
             "columns",
             "column-gap",

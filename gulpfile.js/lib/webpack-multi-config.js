@@ -1,57 +1,71 @@
-var config = require('../config');
+const config = require('../config');
 
-var path = require('path');
-var pathToUrl = require('./pathToUrl');
-var webpack = require('webpack');
-var WebpackManifest = require('./webpackManifest');
+const path = require('path');
+const pathToUrl = require('./pathToUrl');
+const webpack = require('webpack');
+const WebpackManifest = require('./webpackManifest');
 
-var webpackConfig = function(env) {
-  var jsSrc = path.resolve(config.root.src, config.tasks.js.src);
-  var jsDest = path.resolve(config.root.dest, config.tasks.js.dest);
-  var publicPath = pathToUrl(config.tasks.js.dest, '/');
+const webpackConfig = function(env) {
+  const jsSrc = path.resolve(config.root.src, config.tasks.js.src);
+  const jsDest = path.resolve(config.root.dest, config.tasks.js.dest);
+  const publicPath = pathToUrl(config.tasks.js.dest, '/');
 
-  var extensions = config.tasks.js.extensions.map(function(extension) {
+  const extensions = config.tasks.js.extensions.map(function(extension) {
     return '.' + extension;
   });
 
-  var rev = config.tasks.production.rev && env === 'production';
-  var filenamePattern = rev ? '[name]-[hash].js' : '[name].js';
+  const rev = config.tasks.production.rev && env === 'production';
+  const filenamePattern = rev ? '[name]-[hash].js' : '[name].js';
 
-  var webpackConfig = {
+  const webpackConfig = {
     context: jsSrc,
     plugins: [],
     resolve: {
-      root: jsSrc,
-      extensions: [''].concat(extensions)
+      modules: [
+        jsSrc,
+        'node_modules',
+      ],
+      extensions: extensions,
     },
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
-          query: config.tasks.js.babel
+          use: [
+            {
+              loader: 'babel-loader',
+              options: config.tasks.js.babel,
+            },
+          ],
         },
         {
           test: /(enumify|es6-store)/,
-          loader: 'babel-loader',
-          query: config.tasks.js.babel
+          use: [
+            {
+              loader: 'babel-loader',
+              options: config.tasks.js.babel,
+            },
+          ],
         },
         {
-          test: require.resolve("jquery"),
-          loader: 'expose?$!expose?jQuery'
-        }
-      ]
-    }
+          test: require.resolve('jquery'),
+          use: [
+            'expose-loader?$',
+            'expose-loader?jQuery',
+          ],
+        },
+      ],
+    },
   };
 
   if (env === 'development') {
     webpackConfig.devtool = 'inline-source-map';
 
     // Create new entries object with webpack-hot-middleware added
-    for (var key in config.tasks.js.entries) {
+    for (let key in config.tasks.js.entries) {
       if (config.tasks.js.entries.hasOwnProperty(key)) {
-        var entry = config.tasks.js.entries[key];
+        let entry = config.tasks.js.entries[key];
         config.tasks.js.entries[key] =
           ['webpack-hot-middleware/client?&reload=true'].concat(entry);
       }
@@ -67,7 +81,7 @@ var webpackConfig = function(env) {
     webpackConfig.output = {
       path: path.normalize(jsDest),
       filename: filenamePattern,
-      publicPath: publicPath
+      publicPath: publicPath,
     };
 
     if (config.tasks.js.extractSharedJs) {
@@ -75,7 +89,7 @@ var webpackConfig = function(env) {
       webpackConfig.plugins.push(
         new webpack.optimize.CommonsChunkPlugin({
           name: 'shared',
-          filename: filenamePattern
+          filename: filenamePattern,
         })
       );
     }
@@ -90,12 +104,11 @@ var webpackConfig = function(env) {
     webpackConfig.plugins.push(
       new webpack.DefinePlugin({
         'process.env': {
-          NODE_ENV: JSON.stringify('production')
-        }
+          NODE_ENV: JSON.stringify('production'),
+        },
       }),
-      new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin(),
-      new webpack.NoErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin()
     );
   }
 
