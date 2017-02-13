@@ -13,6 +13,9 @@ let browserSyncTask = function() {
   if (typeof (proxyConfig) === 'string') {
     config.tasks.browserSync.proxy = {
       target: proxyConfig,
+      proxyOptions: {
+        xfwd: true,
+      },
     };
   }
 

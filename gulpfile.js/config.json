@@ -7,10 +7,7 @@
 
   "tasks": {
     "browserSync": {
-      "server": {
-        "baseDir": "dist/theme/csh"
-      },
-      "startPath": "login/preview.html"
+      "proxy": "127.0.0.1:8080"
     },
 
     "watch": {
