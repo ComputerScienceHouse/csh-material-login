@@ -18,7 +18,7 @@
                 <input type="password" class="form-control" id="password" name="password" autocomplete="off">
             </div>
             <div class="login-actions">
-                <#if realm.rememberMe && !usernameEditDisabled??>
+            <#if realm.rememberMe && !usernameEditDisabled??>
                 <div class="login-actions-left">
                     <div class="checkbox">
                         <label>
@@ -30,11 +30,11 @@
                         </label>
                     </div>
                 </div>
-                </#if>
-                <div class="login-actions-right">
-                    <input class="btn btn-primary btn-lg" name="login" type="submit" value="${msg("doLogIn")}">
-                </div>
+            </#if>
+            <div class="login-actions-right">
+                <input class="btn btn-primary btn-lg" name="login" type="submit" value="${msg("doLogIn")}">
             </div>
+        </div>
         </form>
         </#if>
     <#elseif section = "info">

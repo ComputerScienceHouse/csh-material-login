@@ -98,3 +98,22 @@ body {
     padding: 3px 20px;
   }
 }
+
+.login-otp-setup {
+  padding-left: 15px;
+
+  .otp-code {
+    text-align: center;
+    margin-bottom: 20px;
+
+    .code {
+      font-family: monospace;
+      font-weight: bold;
+    }
+  }
+}
+
+.otp-icon {
+  text-align: center;
+  margin-bottom: 20px;
+}
