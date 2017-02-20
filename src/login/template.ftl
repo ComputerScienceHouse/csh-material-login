@@ -62,16 +62,9 @@
         </div>
     </section>
 
-    <#if properties.scripts?has_content>
-        <#list properties.scripts?split(' ') as script>
-        <script src="${url.resourcesPath}/${script}" type="text/javascript"></script>
-        </#list>
-    </#if>
-    <#if scripts??>
-        <#list scripts as script>
-        <script src="${script}" type="text/javascript"></script>
-        </#list>
-    </#if>
+    <div id="themes"></div>
+
+    <script src="${url.resourcesPath}/js/themes.js" type="text/javascript"></script>
 </body>
 </html>
 </#macro>

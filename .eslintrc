@@ -15,5 +15,8 @@
     },
     "rules": {
         "no-new": 0
-    }
+    },
+    "plugins": [
+        "react"
+    ]
 }

@@ -61,17 +61,6 @@ const webpackConfig = function(env) {
 
   if (env === 'development') {
     webpackConfig.devtool = 'inline-source-map';
-
-    // Create new entries object with webpack-hot-middleware added
-    for (let key in config.tasks.js.entries) {
-      if (config.tasks.js.entries.hasOwnProperty(key)) {
-        let entry = config.tasks.js.entries[key];
-        config.tasks.js.entries[key] =
-          ['webpack-hot-middleware/client?&reload=true'].concat(entry);
-      }
-    }
-
-    webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
   }
 
   if (env !== 'test') {

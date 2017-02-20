@@ -14,7 +14,11 @@ let watchTask = function() {
       let glob = path.join(config.root.src, task.src,
         '**/*.{' + task.extensions.join(',') + '}');
       watch(glob, function() {
-        require('./' + taskName)();
+        if (taskName === 'js') {
+          require('./webpack')();
+        } else {
+          require('./' + taskName)();
+        }
       });
     }
   });
@@ -29,5 +33,5 @@ let watchTask = function() {
   }
 };
 
-gulp.task('watch', ['browserSync'], watchTask);
+gulp.task('watch', watchTask);
 module.exports = watchTask;

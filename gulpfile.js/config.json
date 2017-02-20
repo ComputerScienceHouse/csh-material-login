@@ -6,12 +6,8 @@
   },
 
   "tasks": {
-    "browserSync": {
-      "proxy": "127.0.0.1:8080"
-    },
-
     "watch": {
-      "tasks": ["images", "css", "html", "fonts", "eslint", "sasslint"]
+      "tasks": ["js", "images", "css", "html", "fonts", "eslint", "sasslint"]
     },
 
     "static": {
@@ -27,7 +23,7 @@
       },
       "extensions": ["js", "json"],
       "babel": {
-        "presets": ["es2015", "stage-1"],
+        "presets": ["es2015", "stage-1", "react"],
         "plugins": []
       },
       "extractSharedJs": false

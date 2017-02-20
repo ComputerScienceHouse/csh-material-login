@@ -1,13 +1,11 @@
 import 'jquery';
-import 'bootstrap';
-import PreferencesChooser from './components/PreferencesChooser';
-import PreferencesController from './controllers/PreferencesController';
 
-const preferencesController = new PreferencesController();
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const preferencesChooser =
-  new PreferencesChooser("#preferences-toggle", preferencesController);
+import Themes from 'components/Themes';
 
-preferencesChooser.render();
-
-// particlesJS('particles', particlesConfig);
+ReactDOM.render(
+  <Themes/>,
+  document.getElementById('themes')
+);
