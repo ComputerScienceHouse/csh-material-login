@@ -1,5 +1,6 @@
 @import 'csh-material-bootstrap';
 @import 'zocial';
+@import './themes';
 
 html {
   min-height: 100%;
@@ -18,102 +19,79 @@ body {
   height: 100%;
 
   pointer-events: none;
-}
 
-.container {
-  max-width: 500px !important;
-  text-align: center;
-}
-
-.panel {
-  pointer-events: auto;
-}
-
-.logo {
-  margin-bottom: 30px;
-  max-width: 300px;
-}
-
-.panel-body {
-  padding: 40px 50px 50px;
-  text-align: left;
-}
-
-.feedback {
-  margin-bottom: 20px;
-
-  &-success {
-    color: #4caf50;
+  .container {
+    max-width: 500px !important;
+    text-align: center;
   }
 
-  &-warning {
-    color: #ff9800;
+  .panel {
+    pointer-events: auto;
   }
 
-  &-error {
-    color: #e51c23;
+  .logo {
+    margin-bottom: 30px;
+    max-width: 300px;
   }
 
-  &-info {
-    color: #2196f3;
-  }
-}
-
-.login-actions {
-  &-left {
-    float: left;
+  .panel-body {
+    padding: 40px 50px 50px;
+    text-align: left;
   }
 
-  &-right {
-    float: right;
-  }
-}
+  .feedback {
+    margin-bottom: 20px;
 
-.preferences {
-  &-toggle {
-    position: absolute;
-    right: 5px;
-    bottom: 5px;
-    line-height: 24px;
-
-    & button {
-      border: 0;
-      box-shadow: none !important;
-      background: transparent;
-      color: #fff;
-      font-size: 24px;
+    &-success {
+      color: #4caf50;
     }
 
-    & ul {
-      .dropdown-menu {
-        width: 175px;
+    &-warning {
+      color: #ff9800;
+    }
+
+    &-error {
+      color: #e51c23;
+    }
+
+    &-info {
+      color: #2196f3;
+    }
+  }
+
+  .login-actions {
+    &-left {
+      float: left;
+    }
+
+    &-right {
+      float: right;
+    }
+  }
+
+  .dropdown-menu {
+    .checkbox,
+    .radio {
+      padding: 3px 20px;
+    }
+  }
+
+  .login-otp-setup {
+    padding-left: 15px;
+
+    .otp-code {
+      margin-bottom: 20px;
+      text-align: center;
+
+      .code {
+        font-family: monospace;
+        font-weight: bold;
       }
     }
   }
-}
 
-.dropdown-menu {
-  .checkbox,
-  .radio {
-    padding: 3px 20px;
-  }
-}
-
-.login-otp-setup {
-  padding-left: 15px;
-
-  .otp-code {
+  .otp-icon {
     margin-bottom: 20px;
     text-align: center;
-
-    .code {
-      font-family: monospace;
-      font-weight: bold;
-    }
   }
-}
-
-.otp-icon {
-  margin-bottom: 20px;
-  text-align: center;
 }
