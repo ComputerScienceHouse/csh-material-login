@@ -39,22 +39,6 @@ const webpackConfig = function(env) {
             },
           ],
         },
-        {
-          test: /(enumify|es6-store)/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: config.tasks.js.babel,
-            },
-          ],
-        },
-        {
-          test: require.resolve('jquery'),
-          use: [
-            'expose-loader?$',
-            'expose-loader?jQuery',
-          ],
-        },
       ],
     },
   };
