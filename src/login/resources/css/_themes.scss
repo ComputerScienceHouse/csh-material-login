@@ -38,13 +38,17 @@
     .tab-content {
       margin-top: 20px;
 
-      .panel-body {
-        padding: 0;
+      .panel {
+        cursor: pointer;
 
-        img {
-          border-top-left-radius: 2px;
-          border-top-right-radius: 2px;
-          width: 100%;
+        .panel-body {
+          padding: 0;
+
+          img {
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            width: 100%;
+          }
         }
       }
 

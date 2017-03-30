@@ -1,20 +1,18 @@
-import React, {Component} from 'react';
+import React, { PropTypes } from 'react';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 import Tooltip from 'react-bootstrap/lib/Tooltip';
 import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 
-export default class Trigger extends Component {
-  render() {
-    const tooltip = (
-      <Tooltip id="triggerTooltip">Themes</Tooltip>
-    );
+const Trigger = ({ onClick }) => (
+  <div className="themes-trigger" onClick={onClick}>
+    <OverlayTrigger placement="left" overlay={<Tooltip id="triggerTooltip">Themes</Tooltip>}>
+      <Glyphicon glyph="cog" />
+    </OverlayTrigger>
+  </div>
+);
 
-    return (
-      <div className="themes-trigger" onClick={this.props.callback}>
-        <OverlayTrigger placement="left" overlay={tooltip}>
-          <Glyphicon glyph="cog" />
-        </OverlayTrigger>
-      </div>
-    );
-  }
-}
+Trigger.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
+export default Trigger;
