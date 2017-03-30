@@ -13,24 +13,22 @@ let watchTask = function() {
     if (task) {
       let glob = path.join(config.root.src, task.src,
         '**/*.{' + task.extensions.join(',') + '}');
+
+      if (taskName === 'js') {
+        const loginThemesTask = config.tasks['loginThemes'];
+        glob = [glob, path.join(config.root.src, loginThemesTask.src,
+          '**/{' + loginThemesTask.watchFiles.join(',') + '}')]
+      }
+
       watch(glob, function() {
         if (taskName === 'js') {
-          require('./webpack')();
+          gulp.start('webpack');
         } else {
-          require('./' + taskName)();
+          gulp.start(taskName);
         }
       });
     }
   });
-
-  if (typeof additionalPaths !== 'undefined') {
-    additionalPaths.forEach(function(addPath) {
-      let glob = path.join(addPath, '**');
-      watch(glob, function() {
-        browserSync.reload();
-      });
-    });
-  }
 };
 
 gulp.task('watch', watchTask);

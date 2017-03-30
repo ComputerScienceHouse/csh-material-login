@@ -4,7 +4,7 @@ let compact = require('lodash/compact');
 // Grouped by what can run in parallel
 let initTasks = ['clean', 'csscomb'];
 let linterTasks = ['eslint', 'sasslint'];
-let assetTasks = ['fonts', 'images'];
+let assetTasks = ['fonts', 'images', 'loginThemes'];
 let codeTasks = ['html', 'css', 'js'];
 
 module.exports = function(env) {

@@ -3,13 +3,20 @@
     position: absolute;
     right: 5px;
     bottom: 5px;
-    line-height: 24px;
-    font-size: 24px;
-    color: #ffffff;
     cursor: pointer;
+    line-height: 24px;
+    color: #fff;
+    font-size: 24px;
   }
 
   &-modal {
+    a,
+    button {
+      &:focus {
+        outline: none;
+      }
+    }
+
     @media (min-width: 992px) {
       display: flex !important;
       align-items: center;
@@ -35,9 +42,9 @@
         padding: 0;
 
         img {
-          width: 100%;
           border-top-left-radius: 2px;
           border-top-right-radius: 2px;
+          width: 100%;
         }
       }
 

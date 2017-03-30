@@ -33,12 +33,12 @@
       "src": "./",
       "extensions": ["js"]
     },
-    
+
     "sasslint": {
       "src": "./",
       "extensions": ["sass", "scss"]
     },
-    
+
     "csscomb": {
       "src": "./",
       "extensions": ["sass", "scss"]
@@ -87,6 +87,11 @@
       "src": "./",
       "dest": "./",
       "extensions": ["jpg", "png", "svg", "gif"]
+    },
+
+    "loginThemes": {
+      "src": "./login/resources/themes",
+      "watchFiles": ["theme.json"]
     },
 
     "production" : {

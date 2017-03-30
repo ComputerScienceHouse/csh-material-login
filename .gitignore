@@ -1,6 +1,7 @@
 # Project-specific
 dist
 preview
+src/login/resources/themes/manifest.json
 
 # OS X
 *.DS_Store

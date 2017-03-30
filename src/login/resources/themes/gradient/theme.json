@@ -1,0 +1,12 @@
+{
+  "id": "gradient",
+  "name": "Gradient",
+  "authorUsername": "smirabito",
+  "authorName": "Steven Mirabito",
+  "background": {
+    "color": "#b0197e",
+    "image": "linear-gradient(#430a30, #b0197e)",
+    "size": "cover",
+    "repeat": "no-repeat"
+  }
+}

@@ -18,7 +18,7 @@ let webpackProductionTask = function() {
 };
 
 if (config.tasks.js) {
-  gulp.task('webpack', webpackDevelopmentTask);
-  gulp.task('webpack:production', webpackProductionTask);
+  gulp.task('webpack', ['loginThemes'], webpackDevelopmentTask);
+  gulp.task('webpack:production', ['loginThemes'], webpackProductionTask);
   module.exports = webpackDevelopmentTask;
 }
