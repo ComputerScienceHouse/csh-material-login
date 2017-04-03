@@ -12,14 +12,14 @@ import reducer from './reducers';
 const RAVEN_DSN = 'https://5672ee5945634745ad84d4a8470d08bc@sentry.io/153480';
 Raven.config(RAVEN_DSN).install();
 
-const enhancer = compose(
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const enhancer = composeEnhancers(
   persistState(undefined, {
     key: 'loginThemes'
   }),
   applyMiddleware(
       createRavenMiddleware(Raven),
   ),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 let store = createStore(reducer, enhancer);
