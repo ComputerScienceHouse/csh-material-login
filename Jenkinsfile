@@ -36,6 +36,9 @@ pipeline {
 
                 // Overwrite the latest version
                 nexusArtifactUploader artifacts: [[artifactId: 'theme', classifier: 'latest', file: 'dist/theme.zip', type: 'zip']], credentialsId: 'nexus-jenkins', groupId: 'csh-material-login', nexusUrl: 'repo.csh.rit.edu', nexusVersion: 'nexus3', protocol: 'https', repository: 'raw', version: env.BRANCH_NAME
+
+                // Trigger Keycloak build
+                build job: '/ComputerScienceHouse/keycloak-docker/master', wait: false
             }
         }
 
