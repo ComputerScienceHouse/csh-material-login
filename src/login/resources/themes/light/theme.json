@@ -1,0 +1,9 @@
+{
+  "id": "light",
+  "name": "Light",
+  "authorUsername": "smirabito",
+  "authorName": "Steven Mirabito",
+  "background": {
+    "color": "#eee"
+  }
+}

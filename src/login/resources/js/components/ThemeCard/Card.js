@@ -6,7 +6,7 @@ import Panel from 'react-bootstrap/lib/Panel';
 import Background from '../Background';
 import Footer from './Footer';
 
-const Card = ({ name, authorName, authorUsername, background, backgroundImage, onClick }) => (
+const Card = ({ name, authorName, authorUsername, background, backgroundUrl, onClick }) => (
   <Col xs={12} sm={6} md={3}>
     <Panel
       onClick={onClick}
@@ -16,7 +16,6 @@ const Card = ({ name, authorName, authorUsername, background, backgroundImage, o
                 authorUsername={authorUsername} />}>
       <Background
         background={background}
-        backgroundImage={backgroundImage}
         preview={true} />
     </Panel>
   </Col>
@@ -31,8 +30,7 @@ Card.propTypes = {
     image: PropTypes.string,
     size: PropTypes.string,
     repeat: PropTypes.string,
-  }),
-  backgroundImage: PropTypes.string,
+  }).isRequired,
   onClick: PropTypes.func
 };
 

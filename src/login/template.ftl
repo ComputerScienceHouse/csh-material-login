@@ -38,7 +38,7 @@
 
     <section class="login">
         <div class="container">
-            <img class="logo" src="${url.resourcesPath}/img/logo.svg" alt="${realm.displayName}">
+            {% include "common/resources/img/logo.svg" %}
             <div class="panel panel-default">
                 <div class="panel-body">
                     <#if displayMessage && message?has_content>

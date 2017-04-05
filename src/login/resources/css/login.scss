@@ -6,10 +6,6 @@ html {
   min-height: 100%;
 }
 
-body {
-  background: #b0197e linear-gradient(#430a30, #b0197e) no-repeat;
-}
-
 .login {
   display: flex;
   position: absolute;
@@ -32,6 +28,8 @@ body {
   .logo {
     margin-bottom: 30px;
     max-width: 300px;
+
+    fill: #000;
   }
 
   .panel-body {

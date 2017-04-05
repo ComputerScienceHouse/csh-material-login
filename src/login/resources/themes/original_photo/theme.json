@@ -1,7 +1,10 @@
 {
-  "id": "original_photo",
-  "name": "Original Photo",
-  "authorUsername": "jeid",
-  "authorName": "Julien Eid",
-  "backgroundImage": "https://auth.csh.rit.edu/assets/images/reedoriginal.png"
+	"id": "original_photo",
+	"name": "Original Photo",
+	"authorUsername": "jeid",
+	"authorName": "Julien Eid",
+	"stylesheets": [
+		"../dark/dark.css"
+	],
+	"backgroundUrl": "reedoriginal.png"
 }

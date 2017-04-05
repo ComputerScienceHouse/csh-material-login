@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/lib/Button';
 import Glyphicon from 'react-bootstrap/lib/Glyphicon';
 
 import SelectableThemeCard from '../containers/SelectableThemeCard';
+import { getThemeBackgroundFromManifest } from '../utils';
 import { THEME_TYPES } from '../actions';
 
 const ThemesModal = ({ open, onHide, gallery }) => (
@@ -27,8 +28,7 @@ const ThemesModal = ({ open, onHide, gallery }) => (
                   name={theme.name}
                   authorUsername={theme.authorUsername}
                   authorName={theme.authorName}
-                  background={theme.background}
-                  backgroundImage={theme.backgroundImage} />
+                  background={getThemeBackgroundFromManifest(theme)} />
               ))}
           </Row>
         </Tab>

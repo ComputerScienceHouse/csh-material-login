@@ -1,14 +1,16 @@
 import React, { PropTypes } from 'react';
 
-export const backgroundPropsToStyle = ({ background, backgroundImage, preview }) => {
+const propsToStyle = ({ background, preview }) => {
   let style = {
     width: '100%',
+    backgroundColor: background.color,
+    backgroundImage: background.image,
+    backgroundSize: background.size,
+    backgroundRepeat: background.repeat,
   };
 
   if (preview) {
-    Object.assign(style, {
-      height: '130px',
-    });
+    style.height = '130px';
   } else {
     Object.assign(style, {
       height: '100%',
@@ -19,26 +21,11 @@ export const backgroundPropsToStyle = ({ background, backgroundImage, preview })
     });
   }
 
-  if (backgroundImage) {
-    style = Object.assign(style, {
-      backgroundImage: 'url(' + backgroundImage + ')',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-    });
-  } else if (background) {
-    style = Object.assign(style, {
-      backgroundColor: background.color,
-      backgroundImage: background.image,
-      backgroundSize: background.size,
-      backgroundRepeat: background.repeat,
-    });
-  }
-
   return style;
 };
 
 const Background = (props) => (
-  <div style={backgroundPropsToStyle(props)}></div>
+  <div style={propsToStyle(props)}></div>
 );
 
 Background.propTypes = {
@@ -47,8 +34,7 @@ Background.propTypes = {
     image: PropTypes.string,
     size: PropTypes.string,
     repeat: PropTypes.string,
-  }),
-  backgroundImage: PropTypes.string,
+  }).isRequired,
   preview: PropTypes.bool,
 };
 
