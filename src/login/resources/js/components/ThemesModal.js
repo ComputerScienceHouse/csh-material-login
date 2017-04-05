@@ -32,10 +32,6 @@ const ThemesModal = ({ open, onHide, gallery }) => (
               ))}
           </Row>
         </Tab>
-        <Tab eventKey={2} title="My Themes">
-          <Button bsStyle="primary" className="btn-add-theme"><Glyphicon glyph="plus" /> Add Custom Theme</Button>
-          <Row></Row>
-        </Tab>
       </Tabs>
     </Modal.Body>
   </Modal>
