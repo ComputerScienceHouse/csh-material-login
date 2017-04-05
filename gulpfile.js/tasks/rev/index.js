@@ -14,7 +14,7 @@ let revTask = function(cb) {
     // 3) Rev and compress CSS and JS files (this is done after assets,
     // so that if a referenced asset hash changes, the parent hash
     // will change as well)
-    'rev-css',
+    'rev-css-js',
     // 4) Update asset references in HTML
     'update-html',
     cb);

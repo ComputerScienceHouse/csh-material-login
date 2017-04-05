@@ -14,8 +14,7 @@ const webpackConfig = function(env) {
     return '.' + extension;
   });
 
-  const rev = config.tasks.production.rev && env === 'production';
-  const filenamePattern = rev ? '[name]-[hash].js' : '[name].js';
+  const filenamePattern = '[name].js';
 
   const webpackConfig = {
     context: jsSrc,
@@ -69,11 +68,6 @@ const webpackConfig = function(env) {
   }
 
   if (env === 'production') {
-    if (rev) {
-      webpackConfig.plugins.push(
-        new WebpackManifest(publicPath, config.root.dest)
-      );
-    }
     webpackConfig.plugins.push(
       new webpack.DefinePlugin({
         'process.env': {

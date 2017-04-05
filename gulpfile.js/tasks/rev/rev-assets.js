@@ -25,12 +25,6 @@ gulp.task('rev-assets', function() {
   let ignoreThese = '!' +
     path.join(config.root.dest, '/**/*.{' + extToIgnore + '}');
 
-  let toRev = getDirectories();
-  let commonIndex = toRev.indexOf('common');
-  if (commonIndex > -1) {
-    toRev.splice(commonIndex, 1);
-  }
-
   return gulp.src([path.join(config.root.dest, '/**/*'), ignoreThese])
     .pipe(rev())
     .pipe(gulp.dest(config.root.dest))
