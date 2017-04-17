@@ -1,0 +1,10 @@
+{
+	"id": "matrix",
+	"name": "Hacking the Mainframe",
+	"authorUsername": "matted",
+	"authorName": "Devin Matte",
+	"stylesheets": [
+		"../dark/dark.css"
+	],
+	"backgroundUrl": "matrix.gif"
+}
