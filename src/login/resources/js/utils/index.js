@@ -1,3 +1,4 @@
+import 'core-js/fn/array/find';
 import { THEME_TYPES } from '../actions';
 import galleryManifest from '../../themes/manifest.json';
 
