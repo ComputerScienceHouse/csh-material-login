@@ -1,0 +1,15 @@
+{
+	"id": "bonney",
+	"name": "Bonney's Theme",
+	"authorUsername": "maniacalcat",
+	"authorName": "Matthew Bonney",
+	"stylesheets": [
+		"../dark/dark.css"
+	],
+	"background": {
+		"color": "#B57EDC",
+		"image": "linear-gradient(#B57EDC, #71EEB8 70%)",
+		"size": "cover",
+		"repeat": "no-repeat"
+	}
+}

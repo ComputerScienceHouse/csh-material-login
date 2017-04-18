@@ -1,0 +1,15 @@
+{
+	"id": "orange",
+	"name": "RIT Orange",
+	"authorUsername": "matted",
+	"authorName": "Devin Matte",
+	"stylesheets": [
+		"../dark/dark.css"
+	],
+	"background": {
+		"color": "#F36E21",
+		"image": "linear-gradient(#F36E21, #513127)",
+		"size": "cover",
+		"repeat": "no-repeat"
+	}
+}
