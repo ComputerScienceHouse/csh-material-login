@@ -50,6 +50,14 @@
             width: 100%;
           }
         }
+
+        .panel-footer {
+          div {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
       }
 
       .btn-add-theme {
