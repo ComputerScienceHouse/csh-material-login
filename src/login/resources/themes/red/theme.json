@@ -1,0 +1,15 @@
+{
+	"id": "red",
+	"name": "Red.",
+	"authorUsername": "efe",
+	"authorName": "Efe Ozturkoglu",
+	"stylesheets": [
+		"../dark/dark.css"
+	],
+	"background": {
+		"color": "rgb(220, 61, 61)",
+		"image": "linear-gradient(rgb(93, 22, 22), rgb(220, 61, 61))",
+		"size": "cover",
+		"repeat": "no-repeat"
+	}
+}
