@@ -4,7 +4,8 @@
 	"authorUsername": "efe",
 	"authorName": "Efe Ozturkoglu",
 	"stylesheets": [
-		"../dark/dark.css"
+    "../dark/dark.css",
+    "red.css"
 	],
 	"background": {
 		"color": "rgb(220, 61, 61)",
