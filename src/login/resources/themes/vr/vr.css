@@ -1,0 +1,27 @@
+.login-actions .btn {
+    background-color: #00d0ff;
+}
+
+.login-actions .btn:hover,
+.login-actions .btn:focus {
+    background-color: #00a7cc;
+}
+
+.login-actions .btn:active {
+    background-color: #007d99;
+    background-image: radial-gradient(circle, #007d99 10%, #00d0ff 11%);
+}
+
+.login-actions input[type='checkbox']:focus::after,
+.login-actions input[type='checkbox']:checked::after {
+    border-color: #00d0ff;
+}
+
+.login-actions input[type='checkbox']:checked::after {
+    background-color: #00d0ff;
+}
+
+.login input[type='text']:focus,
+.login input[type='password']:focus {
+    box-shadow: inset 0 -2px 0 #00d0ff;
+}

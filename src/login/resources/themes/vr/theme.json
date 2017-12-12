@@ -1,0 +1,11 @@
+{
+    "id": "vr",
+    "name": "Virtual Reality",
+    "authorUsername": "tino",
+    "authorName": "Matt Martino",
+    "stylesheets": [
+        "../dark/dark.css",    
+        "vr.css"
+    ],
+    "backgroundUrl": "vr.jpg"  
+}
