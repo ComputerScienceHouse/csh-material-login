@@ -1,9 +1,27 @@
-.btn {
+.login-actions .btn {
     background-color: #d23d3d;
 }
-.btn:hover {
+
+.login-actions .btn:hover,
+.login-actions .btn:focus {
     background-color: #a72525;
 }
-.btn:active {
+
+.login-actions .btn:active {
     background-color: #a72525;
+    background-image: radial-gradient(circle, #a72525 10%, #d23d3d 11%);
+}
+
+.login-actions input[type='checkbox']:focus::after,
+.login-actions input[type='checkbox']:checked::after {
+    border-color: #d23d3d;
+}
+
+.login-actions input[type='checkbox']:checked::after {
+    background-color: #d23d3d;
+}
+
+.login input[type='text']:focus,
+.login input[type='password']:focus {
+    box-shadow: inset 0 -2px 0 #d23d3d;
 }
