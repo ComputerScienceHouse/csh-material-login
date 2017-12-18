@@ -8,9 +8,9 @@
             <div class="form-group">
                 <label class="control-label" for="username"><#if !realm.registrationEmailAsUsername>${msg("usernameOrEmail")}<#else>${msg("email")}</#if></label>
                 <#if usernameEditDisabled??>
-                    <input id="username" class="form-control" name="username" value="${(login.username!'')?html}" type="text" disabled/>
+                    <input id="username" class="form-control" name="username" value="${(login.username!'')}" type="text" disabled/>
                 <#else>
-                    <input id="username" class="form-control" name="username" value="${(login.username!'')?html}" type="text" autofocus/>
+                    <input id="username" class="form-control" name="username" value="${(login.username!'')}" type="text" autofocus/>
                 </#if>
             </div>
             <div class="form-group">

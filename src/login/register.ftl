@@ -12,23 +12,23 @@
         <#if !realm.registrationEmailAsUsername>
             <div class="form-group ${messagesPerField.printIfExists('username','has-error')}">
                 <label for="username" class="control-label">${msg("username")}</label>
-                <input type="text" id="username" class="form-control" name="username" value="${(register.formData.username!'')?html}" />
+                <input type="text" id="username" class="form-control" name="username" value="${(register.formData.username!'')}" />
             </div>
         </#if>
 
         <div class="form-group ${messagesPerField.printIfExists('firstName','has-error')}">
             <label for="firstName" class="control-label">${msg("firstName")}</label>
-            <input type="text" id="firstName" class="form-control" name="firstName" value="${(register.formData.firstName!'')?html}" />
+            <input type="text" id="firstName" class="form-control" name="firstName" value="${(register.formData.firstName!'')}" />
         </div>
 
         <div class="form-group ${messagesPerField.printIfExists('lastName','has-error')}">
             <label for="lastName" class="control-label">${msg("lastName")}</label>
-            <input type="text" id="lastName" class="form-control" name="lastName" value="${(register.formData.lastName!'')?html}" />
+            <input type="text" id="lastName" class="form-control" name="lastName" value="${(register.formData.lastName!'')}" />
         </div>
 
         <div class="form-group ${messagesPerField.printIfExists('email','has-error')}">
             <label for="email" class="control-label">${msg("email")}</label>
-            <input type="text" id="email" class="form-control" name="email" value="${(register.formData.email!'')?html}" />
+            <input type="text" id="email" class="form-control" name="email" value="${(register.formData.email!'')}" />
         </div>
 
         <#if passwordRequired>
