@@ -19,20 +19,29 @@ function migrate(username, password) {
 }
 
 function inject() {
-  const loginForm = document.querySelector('form[action*="login-actions/authenticate"');
-  const submitBtn = loginForm.querySelector('input[type="submit"]');
-  submitBtn.addEventListener('click', function() {
-    submitBtn.disabled = true;
-    const username = loginForm.querySelector('input[name="username"]').value;
-    const password = loginForm.querySelector('input[name="password"]').value;
+  try {
+    const loginForm = document.querySelector('form[action*="login-actions/authenticate"');
+    const submitBtn = loginForm.querySelector('input[type="submit"]');
+    submitBtn.addEventListener('click', function() {
+      submitBtn.disabled = true;
+      const usernameField = loginForm.querySelector('input[name="username"]');
+      const passwordField = loginForm.querySelector('input[name="password"]');
 
-    migrate(username, password)
-      .then(() => {
-        loginForm.submit();
-      });
+      if (usernameField && passwordField) {
+        migrate(usernameField.value, passwordField.value)
+          .then(() => {
+            loginForm.submit();
+          });
 
-    return false;
-  });
+        return false;
+      }
+
+      return true;
+    });
+  } catch (e) {
+    console.error('[MIGRATE] Failed to bind to form:', e);
+    return true;
+  }
 }
 
 module.exports = inject;
