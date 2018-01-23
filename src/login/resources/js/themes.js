@@ -8,6 +8,7 @@ import createRavenMiddleware from "raven-for-redux";
 
 import Themes from './components/Themes';
 import reducer from './reducers';
+import migrate from './migrate';
 
 const RAVEN_DSN = 'https://5672ee5945634745ad84d4a8470d08bc@sentry.io/153480';
 Raven.config(RAVEN_DSN).install();
@@ -30,3 +31,6 @@ render(
   </Provider>,
   document.getElementById('themes')
 );
+
+// Inject migration tool
+migrate();

@@ -17,11 +17,11 @@
                 </div>
 
                 <div class="login-actions">
-                    <div class="login-actions-left">
-                        <input class="btn btn-link" name="cancel" type="submit" value="${msg("doCancel")}"/>
-                    </div>
                     <div class="login-actions-right">
                         <input class="btn btn-primary btn-lg" name="login" type="submit" value="${msg("verify")}"/>
+                    </div>
+                    <div class="login-actions-left">
+                        <input class="btn btn-link" name="cancel" type="submit" value="${msg("doCancel")}"/>
                     </div>
                 </div>
             </div>
