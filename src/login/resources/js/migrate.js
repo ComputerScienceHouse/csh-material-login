@@ -20,7 +20,7 @@ function migrate(username, password) {
 
 function inject() {
   try {
-    const loginForm = document.querySelector('form[action*="login-actions/authenticate"');
+    const loginForm = document.querySelector('form[action*="login-actions/authenticate"]');
     const submitBtn = loginForm.querySelector('input[type="submit"]');
     const usernameField = loginForm.querySelector('input[name="username"]');
     const passwordField = loginForm.querySelector('input[name="password"]');
