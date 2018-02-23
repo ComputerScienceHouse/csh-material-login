@@ -1,0 +1,11 @@
+{
+	"id": "ritchie",
+	"name": "Ritchie",
+	"authorUsername": "smirabito",
+	"authorName": "Steven Mirabito",
+	"stylesheets": [
+		"../dark/dark.css",
+    "ritchie.css"
+	],
+	"backgroundUrl": "ritchie.jpg"
+}
