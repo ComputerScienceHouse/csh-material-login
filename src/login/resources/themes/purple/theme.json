@@ -4,7 +4,8 @@
     "authorUsername": "purple",
     "authorName": "Steve Greene",
     "stylesheets": [
-        "roo.css"
+        "roo.css",
+        "dark.css"
     ],
     "backgroundUrl": "rooarch.jpg"
 }
