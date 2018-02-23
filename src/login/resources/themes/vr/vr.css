@@ -1,13 +1,13 @@
-.login-actions .btn {
+.login-actions .btn-primary {
     background-color: #00d0ff;
 }
 
-.login-actions .btn:hover,
-.login-actions .btn:focus {
+.login-actions .btn-primary:hover,
+.login-actions .btn-primary:focus {
     background-color: #00a7cc;
 }
 
-.login-actions .btn:active {
+.login-actions .btn-primary:active {
     background-color: #007d99;
     background-image: radial-gradient(circle, #007d99 10%, #00d0ff 11%);
 }
