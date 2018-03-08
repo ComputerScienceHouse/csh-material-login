@@ -42,11 +42,16 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <#if displayMessage && message?has_content>
+                        <#if message.type = 'error'>
+                            <div class="alert alert-info" role="alert">
+                                Having trouble logging in? Try <a href="https://stone.csh.rit.edu/migrate" target="_blank">migrating your account</a>.
+                            </div>
+                        </#if>
                         <div class="feedback feedback-${message.type}">
                             <#if message.type = 'success'><span class="glyphicon glyphicon-ok-sign"></span></#if>
                             <#if message.type = 'warning'><span class="glyphicon glyphicon-exclamation-sign"></span></#if>
                             <#if message.type = 'error'><span class="glyphicon glyphicon-remove-sign"></span></#if>
-                            <#if message.type = 'info'><span class="glyphicon glyphicon-info-sign""></span></#if>
+                            <#if message.type = 'info'><span class="glyphicon glyphicon-info-sign"></span></#if>
                             ${message.summary}
                         </div>
                     </#if>
