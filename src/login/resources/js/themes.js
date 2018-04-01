@@ -14,9 +14,9 @@ Raven.config(RAVEN_DSN).install();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const enhancer = composeEnhancers(
-  persistState(undefined, {
-    key: 'loginThemes'
-  }),
+//  persistState(undefined, {
+//    key: 'loginThemes'
+//  }),
   applyMiddleware(
       createRavenMiddleware(Raven),
   ),

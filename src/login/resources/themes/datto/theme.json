@@ -1,0 +1,11 @@
+{
+	"id": "datto",
+	"name": "datto",
+	"authorUsername": "matted",
+	"authorName": "Devin Matte",
+	"stylesheets": [
+		"../dark/dark.css",
+		"datto.css"
+	],
+	"backgroundUrl": "datto-bg.svg"
+}
