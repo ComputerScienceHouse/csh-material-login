@@ -1,9 +1,9 @@
 import { THEME_TYPES, SET_ACTIVE_THEME } from '../actions';
-import datto from '../../themes/datto/theme.json';
+import gradientTheme from '../../themes/gradient/theme.json';
 
 const DEFAULT_THEME = {
   type: THEME_TYPES.GALLERY,
-  id: datto.id
+  id: gradientTheme.id
 };
 
 const activeTheme = (state = DEFAULT_THEME, action) => {
