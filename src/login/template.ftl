@@ -37,7 +37,7 @@
     </#if>
 
     <section class="login">
-        <div class="container" id="loginBox">
+        <div class="container" id="login-box">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <#if displayMessage && message?has_content>

@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { renderToString } from 'react-dom/lib/ReactServerRendering';
 
+const LOGIN_BOX_ID = 'login-box';
+
 const fetchRawSvg = (url) => {
   const request = new XMLHttpRequest();
   request.open('GET', url, false);
@@ -14,7 +16,7 @@ const Logo = (props) => {
 
   if (props.src.endsWith('svg')) {
     const elementHtml = fetchRawSvg(props.src);
-    document.getElementById('loginBox').insertAdjacentHTML(
+    document.getElementById(LOGIN_BOX_ID).insertAdjacentHTML(
       'afterbegin',
       elementHtml
     );
@@ -23,7 +25,7 @@ const Logo = (props) => {
     inlined.setAttribute('class', 'logo');
   } else {
     const img = <img src={props.src} className={'logo'} />;
-    document.getElementById('loginBox').insertAdjacentHTML(
+    document.getElementById(LOGIN_BOX_ID).insertAdjacentHTML(
       'afterbegin',
       renderToString(img)
     );
