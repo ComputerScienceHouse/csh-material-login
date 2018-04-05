@@ -7,7 +7,7 @@ Run `gulp production` to build the theme in production mode and generate the the
 
 ## Contributing
 
-Clone this repo and make sure you have Node installed ([NVM](https://github.com/creationix/nvm) is highly recommended). Install the dependencies by running `npm install`.
+Clone this repo and make sure you have Node 6.x installed ([NVM](https://github.com/creationix/nvm) is highly recommended). Install the dependencies by running `npm install`.
 
 To set up a local instance of Keycloak for development, install [Docker](https://www.docker.com/), then, from the project root, run `docker-compose up -d` to build and run the container. Once the container is up and running, run `npm start` to compile the theme and start watching the source files for changes. All source files can be found in the appropriately-named subdirectory under `src`.
 
