@@ -4,9 +4,9 @@ import Logo from '../components/Logo';
 import { getThemeLogoById } from '../utils';
 
 const mapStateToProps = (state) => {
-  const url = getThemeLogoById(state.activeTheme.type, state.activeTheme.id);
+  const src = getThemeLogoById(state.activeTheme.type, state.activeTheme.id);
   return {
-    src: url,
+    src,
   };
 };
 

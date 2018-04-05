@@ -56,8 +56,7 @@ export const getThemeLogoById = (type, id) => {
   if (!!manifest.customLogo) {
     return themeRelativeToAbsoluteUrl(id, manifest.customLogo);
   }
-  const themesDir = getThemesDir();
-  return `${themesDir}/logo.svg`;
+  return `${getThemesDir()}/logo.svg`;
 };
 
 const getThemesDir = () => {
