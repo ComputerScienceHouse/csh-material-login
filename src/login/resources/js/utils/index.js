@@ -12,7 +12,7 @@ export const getThemeManifest = (type, id) => {
   }
 
   return themeData;
-}
+};
 
 export const themeRelativeToAbsoluteUrl = (themeId, url) => {
   const absPat = /^https?:\/\/|^\/\//i;
@@ -21,11 +21,7 @@ export const themeRelativeToAbsoluteUrl = (themeId, url) => {
     return url;
   } else {
     // Relative image URL, build the absolute URL
-    const bundlePath = document.querySelector('script[src*="themes"]').getAttribute('src');
-    const bundleName = bundlePath.split('/').pop();
-    const themesDir = `${bundlePath.replace(`js/${bundleName}`, '')}themes`;
-
-    return `${themesDir}/${themeId}/${url}`;
+    return `${getThemesDir()}/${themeId}/${url}`;
   }
 };
 
@@ -54,3 +50,18 @@ export const getThemeStylesheetsFromManifest = (themeData) => {
 
 export const getThemeStylesheetsById = (type, id) =>
   getThemeStylesheetsFromManifest(getThemeManifest(type, id));
+
+export const getThemeLogoById = (type, id) => {
+  const manifest = getThemeManifest(type, id);
+  if (!!manifest.customLogo) {
+    return themeRelativeToAbsoluteUrl(id, manifest.customLogo);
+  }
+  const themesDir = getThemesDir();
+  return `${themesDir}/logo.svg`;
+};
+
+const getThemesDir = () => {
+  const bundlePath = document.querySelector('script[src*="themes"]').getAttribute('src');
+  const bundleName = bundlePath.split('/').pop();
+  return `${bundlePath.replace(`js/${bundleName}`, '')}themes`;
+};

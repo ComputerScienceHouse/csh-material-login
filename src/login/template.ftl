@@ -37,8 +37,7 @@
     </#if>
 
     <section class="login">
-        <div class="container">
-            {% include "common/resources/img/logo.svg" %}
+        <div class="container" id="loginBox">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <#if displayMessage && message?has_content>
