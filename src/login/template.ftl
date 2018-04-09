@@ -38,6 +38,9 @@
 
     <section class="login">
         <div class="container" id="login-box">
+            <noscript>
+                {% include "common/resources/img/logo.svg" %}
+            </noscript>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <#if displayMessage && message?has_content>
