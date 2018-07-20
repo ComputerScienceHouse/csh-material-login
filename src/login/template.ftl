@@ -46,7 +46,7 @@
                     <#if displayMessage && message?has_content>
                         <#if message.type = 'error'>
                             <div class="alert alert-info" role="alert">
-                                Having trouble logging in? Try <a href="https://stone.csh.rit.edu/migrate" target="_blank">migrating your account</a>.
+                                Having trouble logging in? Try <a href="https://account.csh.rit.edu/recovery" target="_blank">recovering your account</a>.
                             </div>
                         </#if>
                         <div class="feedback feedback-${message.type}">
