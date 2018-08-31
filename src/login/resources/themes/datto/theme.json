@@ -7,5 +7,6 @@
 		"../dark/dark.css",
 		"datto.css"
 	],
-	"backgroundUrl": "datto-bg.svg"
+	"backgroundUrl": "background.svg",
+	"customLogo": "logo.svg"
 }
