@@ -56,11 +56,13 @@ export const getThemeLogoById = (type, id) => {
   if (!!manifest.customLogo) {
     return themeRelativeToAbsoluteUrl(id, manifest.customLogo);
   }
-  return `${getThemesDir()}/logo.svg`;
+  return `${getResourcesDir()}/img/logo.svg`;
 };
 
-const getThemesDir = () => {
+const getThemesDir = () => `${getResourcesDir()}themes`;
+
+const getResourcesDir = () => {
   const bundlePath = document.querySelector('script[src*="themes"]').getAttribute('src');
   const bundleName = bundlePath.split('/').pop();
-  return `${bundlePath.replace(`js/${bundleName}`, '')}themes`;
+  return bundlePath.replace(`js/${bundleName}`, '');
 };
