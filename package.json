@@ -21,7 +21,7 @@
     "demo": "gulp production && gulp server"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "core-js": "^2.4.1",
     "csh-material-bootstrap": "^1.0.0",
     "css-social-buttons": "^1.1.1",
