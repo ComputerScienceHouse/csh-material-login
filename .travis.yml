@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "6"
+install:
+  - npm install
+
+script:
+  - npm run production
+
+before_deploy: mkdir upload && mv dist/theme.zip upload
+
+deploy:
+  access_key_id: $ACCESS_KEY
+  bucket: $BUCKET
+  edge: true
+  endpoint: $ENDPOINT
+  force_path_style: true
+  local_dir: upload
+  provider: s3
+  secret_access_key: $SECRET_KEY
