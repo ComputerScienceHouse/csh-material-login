@@ -1,7 +1,8 @@
 {
   "name": "csh-material-login",
-  "version": "1.0.1",
-  "description": "Material login theme for Computer Science House",
+  "version": "2.0.0",
+  "description": "Keycloak theme for Computer Science House",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ComputerScienceHouse/csh-material-login.git"
@@ -12,85 +13,77 @@
   "bugs": {
     "url": "https://github.com/ComputerScienceHouse/csh-material-login/issues"
   },
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
-    "start": "gulp",
-    "gulp": "gulp",
-    "development": "gulp",
-    "production": "gulp production",
-    "deploy": "gulp deploy",
-    "demo": "gulp production && gulp server"
+    "start": "rewrite-tsconfig && node tools/watch.js",
+    "build": "rewrite-tsconfig && node tools/build.js",
+    "lint": "rewrite-tsconfig && eslint --format codeframe src && tsc --noEmit && stylelint 'src/**/*.{css,sass,scss}'",
+    "clean": "node tools/clean.js"
   },
   "dependencies": {
-    "bootstrap": "^3.4.1",
-    "core-js": "^2.4.1",
-    "csh-material-bootstrap": "^1.0.0",
-    "css-social-buttons": "^1.1.1",
-    "raven-for-redux": "^1.4.0",
-    "raven-js": "^3.27.2",
-    "react": "^15.4.2",
-    "react-bootstrap": "^0.30.7",
-    "react-dom": "^15.4.2",
-    "react-redux": "^5.0.3",
-    "redux": "^3.6.0",
-    "redux-localstorage": "^0.4.1"
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
-    "browser-sync": "^2.18.7",
-    "chai": "^3.5.0",
-    "compression": "^1.6.2",
-    "del": "^2.2.2",
-    "eslint": "^4.19.1",
-    "eslint-config-google": "^0.7.1",
-    "eslint-plugin-react": "^6.10.0",
-    "exports-loader": "^0.6.3",
-    "expose-loader": "^0.7.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "3.1.1",
-    "gulp-batch-replace": "0.0.0",
-    "gulp-changed": "1.3.2",
-    "gulp-csscomb": "^3.0.7",
-    "gulp-cssnano": "2.1.2",
-    "gulp-data": "1.2.1",
-    "gulp-eslint": "^3.0.1",
-    "gulp-gh-pages": "0.5.4",
-    "gulp-htmlmin": "3.0.0",
-    "gulp-iconfont": "8.0.1",
-    "gulp-if": "2.0.2",
-    "gulp-imagemin": "3.1.1",
-    "gulp-msg": "0.0.1",
-    "gulp-notify": "3.0.0",
-    "gulp-nunjucks-render": "2.0.0",
-    "gulp-rename": "1.2.2",
-    "gulp-rev": "7.1.2",
-    "gulp-rev-napkin": "0.1.0",
-    "gulp-rev-replace": "^0.4.4",
-    "gulp-sass": "3.1.0",
-    "gulp-sass-lint": "^1.4.0",
-    "gulp-sequence": "0.4.6",
-    "gulp-sizereport": "1.2.0",
-    "gulp-sourcemaps": "2.4.1",
-    "gulp-svgstore": "6.1.0",
-    "gulp-uglify": "2.0.1",
-    "gulp-util": "3.0.8",
-    "gulp-watch": "4.3.11",
-    "gulp-zip": "^4.0.0",
-    "imports-loader": "^0.8.0",
-    "lolex": "~1.5.2",
-    "mocha": "^3.5.3",
-    "morgan": "~1.9.1",
-    "object-assign": "~4.1.1",
-    "open": "^0.0.5",
-    "pretty-hrtime": "~1.0.3",
-    "redux-devtools": "^3.3.2",
-    "require-dir": "~0.3.1",
-    "sinon": "~1.17.7",
-    "sinon-chai": "~2.8.0",
-    "webpack": "^2.2.1"
+    "@babel/core": "^7.11.6",
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@neutrinojs/eslint": "^9.4.0",
+    "@neutrinojs/react": "^9.4.0",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^4.0.1",
+    "@typescript-eslint/parser": "^4.0.1",
+    "autoprefixer": "^9.8.6",
+    "chokidar": "^3.4.2",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-airbnb-typescript": "^10.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "html-webpack-plugin": "^4.4.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.3.0",
+    "neutrino": "^9.4.0",
+    "neutrinojs-typescript": "^1.1.4",
+    "parallel-webpack": "^2.6.0",
+    "postcss": "^7.0.32",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.1.1",
+    "stylelint": "^13.7.0",
+    "stylelint-config-recommended": "^3.0.0",
+    "stylelint-config-sass-guidelines": "^7.1.0",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-subresource-integrity": "^1.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.md": [
+      "prettier --write"
+    ],
+    "*.css": [
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{ts,tsx}": [
+      "tsc -p tsconfig.json --noEmit"
+    ]
   }
 }
