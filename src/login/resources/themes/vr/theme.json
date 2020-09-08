@@ -3,8 +3,8 @@
     "name": "Virtual Reality",
     "authorUsername": "tino",
     "authorName": "Matt Martino",
+    "dark": true,
     "stylesheets": [
-        "../dark/dark.css",    
         "vr.css"
     ],
     "backgroundUrl": "vr.jpg"  

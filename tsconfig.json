@@ -5,6 +5,11 @@
   "compilerOptions": {
     "strict": true,
     "noImplicitAny": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
     "importsNotUsedAsValues": "error",
     "target": "esnext",
     "module": "esnext",

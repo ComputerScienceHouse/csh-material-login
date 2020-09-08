@@ -3,9 +3,7 @@
 	"name": "Gradient",
 	"authorUsername": "smirabito",
 	"authorName": "Steven Mirabito",
-	"stylesheets": [
-		"../dark/dark.css"
-	],
+	"dark": true,
 	"background": {
 		"color": "#b0197e",
 		"image": "linear-gradient(#430a30, #b0197e)",

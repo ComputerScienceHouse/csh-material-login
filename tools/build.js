@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 const { resolve } = require("path");
-const { compileJs } = require("./lib/steps");
+const { compileJs, compileThemeManifest } = require("./lib/steps");
 
 (async () => {
   try {
@@ -10,6 +10,9 @@ const { compileJs } = require("./lib/steps");
     // Copy everything to dist
     await fs.emptyDir(dist);
     await fs.copy(src, dist);
+
+    // Compile theme manifest for login module
+    await compileThemeManifest();
 
     // Compile JavaScript
     await compileJs();

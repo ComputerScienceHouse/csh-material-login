@@ -3,8 +3,8 @@
   "name": "Red.",
   "authorUsername": "efe",
   "authorName": "Efe Ozturkoglu",
+  "dark": true,
   "stylesheets": [
-    "../dark/dark.css",
     "red.css"
   ],
   "background": {

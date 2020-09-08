@@ -1,0 +1,11 @@
+{
+    "id": "bonnaroo",
+    "name": "Bonnaroo",
+    "authorUsername": "purple",
+    "authorName": "Steve Greene",
+    "dark": true,
+    "stylesheets": [
+        "roo.css"
+    ],
+    "backgroundUrl": "rooarch.jpg"
+}

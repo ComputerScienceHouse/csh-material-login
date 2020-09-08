@@ -3,9 +3,7 @@
 	"name": "Bonney's Theme",
 	"authorUsername": "maniacalcat",
 	"authorName": "Matthew Bonney",
-	"stylesheets": [
-		"../dark/dark.css"
-	],
+	"dark": true,
 	"background": {
 		"color": "#B57EDC",
 		"image": "linear-gradient(#B57EDC, #71EEB8 70%)",

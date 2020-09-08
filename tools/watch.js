@@ -1,7 +1,7 @@
 const fs = require("fs-extra");
 const { resolve } = require("path");
 const chokidar = require("chokidar");
-const { compileJs } = require("./lib/steps");
+const { compileJs, compileThemeManifest } = require("./lib/steps");
 
 const truncatePath = (path) => {
   const matches = /(src|dist).*/.exec(path);
@@ -15,14 +15,38 @@ const truncatePath = (path) => {
 
     const copyFile = async (path) => {
       const dest = path.replace(src, dist);
-      await fs.copy(path, dest);
-      console.log(`${truncatePath(path)} => ${truncatePath(dest)}`);
+
+      try {
+        await fs.copy(path, dest);
+        console.log(`${truncatePath(path)} => ${truncatePath(dest)}`);
+      } catch (err) {
+        console.error(`failed to copy: ${truncatePath(dest)}`);
+        console.error(err);
+      }
+
+      try {
+        if (/src\/login\/resources\/themes\/.+\/theme\.json/.test(path)) {
+          // Recompile the theme manifest if a theme definition changed
+          await compileThemeManifest();
+        }
+      } catch (err) {
+        console.error(err);
+      }
     };
 
     const remove = async (path) => {
       const dest = path.replace(src, dist);
-      await fs.remove(dest);
-      console.log(`remove: ${truncatePath(dest)}`);
+
+      try {
+        await fs.remove(dest);
+        console.log(`remove: ${truncatePath(dest)}`);
+      } catch (_) {
+        console.error(
+          `failed to remove: ${truncatePath(
+            dest
+          )} (was it was already deleted?)`
+        );
+      }
     };
 
     await fs.ensureDir(dist);

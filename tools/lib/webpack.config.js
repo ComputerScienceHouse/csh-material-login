@@ -15,7 +15,7 @@ module.exports = (async () => {
 
   for (const module of modules) {
     const jsSrc = path.resolve(module, "resources/js");
-    const jsDist = jsSrc.replace(src, dist);
+    const jsDist = path.resolve(module, "resources").replace(src, dist);
 
     if (await isDirectory(jsSrc)) {
       const entries = await findFiles(jsSrc, ["js", "jsx", "ts", "tsx"]);

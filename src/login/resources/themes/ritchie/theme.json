@@ -3,9 +3,9 @@
 	"name": "Ritchie",
 	"authorUsername": "smirabito",
 	"authorName": "Steven Mirabito",
+	"dark": true,
 	"stylesheets": [
-		"../dark/dark.css",
-    "ritchie.css"
+		"ritchie.css"
 	],
 	"backgroundUrl": "ritchie.jpg"
 }

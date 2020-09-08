@@ -1,27 +1,28 @@
-.login-actions .btn-primary {
-    background-color: #d23d3d;
+.btn-primary {
+  background-color: #d23d3d;
+  background-image: linear-gradient(#d85a5a, #d23d3d);
 }
 
-.login-actions .btn-primary:hover,
-.login-actions .btn-primary:focus {
-    background-color: #a72525;
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #ba2c2c;
+  background-image: linear-gradient(#d23d3d, #ba2c2c);
 }
 
-.login-actions .btn-primary:active {
-    background-color: #a72525;
-    background-image: radial-gradient(circle, #a72525 10%, #d23d3d 11%);
+.btn-primary:active {
+  background-color: #912222 !important;
 }
 
-.login-actions input[type='checkbox']:focus::after,
-.login-actions input[type='checkbox']:checked::after {
-    border-color: #d23d3d;
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #d23d3d;
+  background: #d23d3d linear-gradient(180deg, #d85a5a, #d23d3d) repeat-x;
 }
 
-.login-actions input[type='checkbox']:checked::after {
-    background-color: #d23d3d;
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #d23d3d;
 }
 
-.login input[type='text']:focus,
-.login input[type='password']:focus {
-    box-shadow: inset 0 -2px 0 #d23d3d;
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+  box-shadow: inset 0 -2px 0 #d23d3d;
 }
