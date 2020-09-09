@@ -54,11 +54,10 @@ const truncatePath = (path) => {
     // One-liner for current directory
     const watcher = chokidar.watch(src, {
       persistent: true,
-      // Ignore JavaScript source directories, as these will be handled by Webpack
-      ignored: /.*resources\/js\/.*/,
+      // Ignore JavaScript source directories and the theme manifests, as these will be handled by Webpack
+      ignored: ["**/resources/js/**/*", "**/themes/**/*.json"],
     });
 
-    watcher.on("ready", () => console.log("Waiting for changes..."));
     watcher.on("error", async (error) =>
       console.log(`Watcher error: ${error}`)
     );
