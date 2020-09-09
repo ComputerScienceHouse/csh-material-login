@@ -12,7 +12,7 @@ async function compileJs(watch = false) {
   });
 }
 
-async function compileThemeManifest() {
+async function writeThemeManifest() {
   try {
     // Build theme manifest for the login module
     const themesRoot = path.resolve(
@@ -29,17 +29,41 @@ async function compileThemeManifest() {
       );
     }
 
-    return fs.writeFile(
-      path.resolve(themesRoot, "manifest.json"),
-      JSON.stringify(manifest)
-    );
+    return fs.writeJson(path.resolve(themesRoot, "manifest.json"), manifest);
   } catch (err) {
-    console.error("[THEMES] Failed to compile login theme manifest.");
+    console.error("[THEMES] Failed to write login theme manifest.");
+    throw err;
+  }
+}
+
+async function writePackageManifest() {
+  try {
+    // Build package manifest for the distribution JAR
+    const dist = path.resolve(__dirname, "../../dist");
+    const meta = path.resolve(dist, "META-INF");
+
+    const manifest = {
+      themes: [
+        {
+          name: "csh",
+          types: (
+            await getDirectories(path.resolve(dist, "theme/csh"))
+          ).map((p) => path.basename(p)),
+        },
+      ],
+    };
+
+    await fs.ensureDir(meta);
+
+    return fs.writeJson(path.resolve(meta, "keycloak-themes.json"), manifest);
+  } catch (err) {
+    console.error("[PACKAGE] Failed to write package manifest.");
     throw err;
   }
 }
 
 module.exports = {
   compileJs,
-  compileThemeManifest,
+  writeThemeManifest,
+  writePackageManifest,
 };

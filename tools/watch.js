@@ -1,7 +1,7 @@
 const fs = require("fs-extra");
 const { resolve } = require("path");
 const chokidar = require("chokidar");
-const { compileJs, compileThemeManifest } = require("./lib/steps");
+const { compileJs, writeThemeManifest } = require("./lib/steps");
 
 const truncatePath = (path) => {
   const matches = /(src|dist).*/.exec(path);
@@ -27,7 +27,7 @@ const truncatePath = (path) => {
       try {
         if (/src\/login\/resources\/themes\/.+\/theme\.json/.test(path)) {
           // Recompile the theme manifest if a theme definition changed
-          await compileThemeManifest();
+          await writeThemeManifest();
         }
       } catch (err) {
         console.error(err);

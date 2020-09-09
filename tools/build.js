@@ -1,6 +1,6 @@
 const fs = require("fs-extra");
 const { resolve } = require("path");
-const { compileJs, compileThemeManifest } = require("./lib/steps");
+const { compileJs, writeThemeManifest } = require("./lib/steps");
 
 (async () => {
   try {
@@ -9,10 +9,13 @@ const { compileJs, compileThemeManifest } = require("./lib/steps");
 
     // Copy everything to dist
     await fs.emptyDir(dist);
-    await fs.copy(src, dist);
+    await fs.copy(src, dist, {
+      // Exclude theme manifests, which are compiled into the JS bundle
+      filter: (path) => !/themes\/.+\.json$/.test(path),
+    });
 
     // Compile theme manifest for login module
-    await compileThemeManifest();
+    await writeThemeManifest();
 
     // Compile JavaScript
     await compileJs();
