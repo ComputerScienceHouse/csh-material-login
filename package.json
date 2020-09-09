@@ -17,8 +17,8 @@
     "node": ">=14"
   },
   "scripts": {
-    "start": "rewrite-tsconfig && node tools/watch.js",
-    "build": "rewrite-tsconfig && node tools/build.js",
+    "start": "NODE_ENV=development rewrite-tsconfig && node tools/watch.js",
+    "build": "NODE_ENV=production rewrite-tsconfig && node tools/build.js",
     "lint": "rewrite-tsconfig && eslint --format codeframe src && tsc --noEmit && stylelint 'src/**/*.{css,sass,scss}'",
     "clean": "node tools/clean.js"
   },
@@ -68,6 +68,7 @@
     "stylelint-config-sass-guidelines": "^7.1.0",
     "typescript": "^4.0.2",
     "webpack": "^4.44.1",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-subresource-integrity": "^1.4.1"
   },
   "husky": {

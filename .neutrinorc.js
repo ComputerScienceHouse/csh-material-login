@@ -2,6 +2,7 @@ const react = require("@neutrinojs/react");
 const lint = require("@neutrinojs/eslint");
 const typescript = require("neutrinojs-typescript");
 const SriPlugin = require("webpack-subresource-integrity");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
   options: {
@@ -25,6 +26,11 @@ module.exports = {
           parserOptions: {
             project: `${__dirname}/tsconfig.json`,
             ecmaVersion: 2020,
+          },
+          rules: {
+            // Conflicts with Prettier
+            "@typescript-eslint/quotes": "off",
+            "@typescript-eslint/indent": "off",
           },
         },
       },
@@ -63,6 +69,15 @@ module.exports = {
     (neutrino) => {
       neutrino.config.output.crossOriginLoading("anonymous");
       neutrino.config.output.filename("js/[name].[contenthash:8].js");
+
+      // Bundle analyzer
+      neutrino.config.when(process.env.BUNDLE_ANALYZER === "true", (config) => {
+        config.plugin("analyzer").use(BundleAnalyzerPlugin, [
+          {
+            analyzerMode: "server",
+          },
+        ]);
+      });
 
       // Calculate integrity hashes for artifacts
       neutrino.config.when(process.env.NODE_ENV === "production", (config) => {
