@@ -19,6 +19,7 @@
   "scripts": {
     "start": "NODE_ENV=development rewrite-tsconfig && node tools/watch.js",
     "build": "NODE_ENV=production rewrite-tsconfig && node tools/build.js && node tools/package.js",
+    "deploy": "node tools/deploy.js",
     "lint": "rewrite-tsconfig && eslint --format codeframe src && tsc --noEmit && stylelint 'src/**/*.{css,sass,scss}'",
     "clean": "node tools/clean.js"
   },
@@ -45,6 +46,7 @@
     "@typescript-eslint/parser": "^4.0.1",
     "archiver": "^5.0.0",
     "autoprefixer": "^9.8.6",
+    "aws-sdk": "^2.751.0",
     "chokidar": "^3.4.2",
     "eslint": "^7.8.1",
     "eslint-config-airbnb-base": "^14.2.0",
@@ -55,9 +57,11 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "fs-extra": "^9.0.1",
+    "globby": "^11.0.1",
     "html-webpack-plugin": "^4.4.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.3.0",
+    "mime-types": "^2.1.27",
     "neutrino": "^9.4.0",
     "neutrinojs-typescript": "^1.1.4",
     "parallel-webpack": "^2.6.0",
