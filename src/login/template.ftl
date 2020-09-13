@@ -86,66 +86,28 @@
         </div>
       </div>
       <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
-        <header class="${properties.kcFormHeaderClass!}">
-          <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
-              <div id="kc-locale">
-                  <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
-                      <div class="kc-dropdown" id="kc-locale-dropdown">
-                          <a href="#" id="kc-current-locale-link">${locale.current}</a>
-                          <ul>
-                              <#list locale.supported as l>
-                                  <li class="kc-dropdown-item"><a href="${l.url}">${l.label}</a></li>
-                              </#list>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-          </#if>
-          <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-              <#if displayRequiredFields>
-                  <div class="${properties.kcContentWrapperClass!}">
-                      <div class="${properties.kcLabelWrapperClass!} subtitle">
-                          <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
-                      </div>
-                  </div>
-              </#if>
-          <#else>
-              <#if displayRequiredFields>
-                  <div class="${properties.kcContentWrapperClass!}">
-                      <div class="${properties.kcLabelWrapperClass!} subtitle">
-                          <span class="subtitle"><span class="required">*</span> ${msg("requiredFields")}</span>
-                      </div>
-                      <div class="col-md-10">
-                          <#nested "show-username">
-                          <div class="${properties.kcFormGroupClass!}">
-                              <div id="kc-username">
-                                  <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                                  <a id="reset-login" href="${url.loginRestartFlowUrl}">
-                                      <div class="kc-login-tooltip">
-                                          <i class="${properties.kcResetFlowIcon!}"></i>
-                                          <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                                      </div>
-                                  </a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              <#else>
-                  <#nested "show-username">
-                  <div class="${properties.kcFormGroupClass!}">
-                      <div id="kc-username">
-                          <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                          <a id="reset-login" href="${url.loginRestartFlowUrl}">
-                              <div class="kc-login-tooltip">
-                                  <i class="${properties.kcResetFlowIcon!}"></i>
-                                  <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-                              </div>
-                          </a>
-                      </div>
-                  </div>
-              </#if>
-          </#if>
-        </header>
+        <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
+            <#if displayRequiredFields>
+                <header class="${properties.kcFormHeaderClass!}">
+                    <span class="required">* ${msg("requiredFields")}</span>
+                </header>
+            </#if>
+        <#else>
+            <header class="${properties.kcFormHeaderClass!}">
+                <#nested "show-username">
+                <div class="navbar-user">
+                    <img src="https://profiles.csh.rit.edu/image/${auth.attemptedUsername}" alt="" aria-hidden="true">
+                    ${auth.attemptedUsername}
+                    <a href="${url.loginRestartFlowUrl}" title="${msg("restartLoginTooltip")}">
+                      <img class="logout" src="${url.resourcesPath}/img/logout.svg" />
+                    </a>
+                </div>
+
+                <#if displayRequiredFields>
+                    <span class="required">* ${msg("requiredFields")}</span>
+                </#if>
+            </header>
+        </#if>
         <div id="kc-content">
           <div id="kc-content-wrapper">
 
@@ -158,11 +120,17 @@
                     </div>
                 </#if>
                 <div class="alert alert-${message.type?replace("error", "danger")}" role="alert">
-                    <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-                    <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
-                    <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-                    <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
-                    <span class="kc-feedback-text">${kcSanitize(message.summary)?no_esc}</span>
+                    <div class="row">
+                      <div class="col-1">
+                        <#if message.type = 'success'><img src="${url.resourcesPath}/img/success.svg" alt="" aria-hidden="true"></#if>
+                        <#if message.type = 'warning'><img src="${url.resourcesPath}/img/warning.svg" alt="" aria-hidden="true"></#if>
+                        <#if message.type = 'error'><img src="${url.resourcesPath}/img/error.svg" alt="" aria-hidden="true"></#if>
+                        <#if message.type = 'info'><img src="${url.resourcesPath}/img/info.svg" alt="" aria-hidden="true"></#if>
+                      </div>
+                      <div class="col-10">
+                        ${kcSanitize(message.summary)?no_esc}
+                      </div>
+                    </div>
                 </div>
             </#if>
 
@@ -179,16 +147,29 @@
             </form>
             </#if>
 
-            <#if displayInfo>
-                <div id="kc-info" class="${properties.kcSignUpClass!}">
-                    <div id="kc-info-wrapper" class="${properties.kcInfoAreaWrapperClass!}">
+            <#if (displayInfo || realm.internationalizationEnabled && locale.supported?size gt 1)>
+                <div class="login-footer">
+                    <#if displayInfo>
                         <#nested "info">
-                    </div>
+                    </#if>
+                    <#if realm.internationalizationEnabled && locale.supported?size gt 1>
+                        <div class="locale">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" aria-haspopup="true">${locale.current}</a>
+                                    <div class="dropdown-menu">
+                                        <#list locale.supported as l>
+                                            <a class="dropdown-item" href="${l.url}">${l.label}</a>
+                                        </#list>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </#if>
                 </div>
             </#if>
           </div>
         </div>
-
       </div>
     </div>
   </div>
