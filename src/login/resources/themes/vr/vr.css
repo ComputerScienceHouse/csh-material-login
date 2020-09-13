@@ -26,3 +26,11 @@
 .login input[type="password"]:focus {
   box-shadow: inset 0 -2px 0 #00d0ff;
 }
+
+img.logout {
+  /*
+    Change color to #199ed9 (https://codepen.io/sosuke/pen/Pjoqqp).
+  */
+  filter: invert(70%) sepia(59%) saturate(4164%) hue-rotate(151deg)
+    brightness(103%) contrast(104%);
+}
