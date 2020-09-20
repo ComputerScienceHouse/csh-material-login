@@ -3,8 +3,6 @@
 	"name": "Original Photo",
 	"authorUsername": "jeid",
 	"authorName": "Julien Eid",
-	"stylesheets": [
-		"../dark/dark.css"
-	],
+	"dark": true,
 	"backgroundUrl": "reedoriginal.png"
 }

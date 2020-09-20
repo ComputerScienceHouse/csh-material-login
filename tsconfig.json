@@ -1,0 +1,27 @@
+/* This file is auto-generated;
+ * Edit .neutrinorc.js to change configuration.
+ */
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      }
+    ],
+    "importsNotUsedAsValues": "error",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "src",
+    "test"
+  ]
+}

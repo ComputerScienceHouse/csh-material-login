@@ -7,5 +7,6 @@ services:
     volumes:
     - ./dist/theme/csh:/opt/jboss/keycloak/themes/csh
     environment:
+    - PROXY_ADDRESS_FORWARDING=true
     - KEYCLOAK_USER=admin
     - KEYCLOAK_PASSWORD=admin

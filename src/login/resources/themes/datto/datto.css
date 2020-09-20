@@ -1,32 +1,40 @@
 .logo {
-  -webkit-filter: drop-shadow(0 0 5px #000);
   filter: drop-shadow(0 0 5px #000);
 }
 
-.login-actions .btn-primary {
-    background: linear-gradient(to right,#199ed9 0,#36eee6 100%);
+.btn-primary {
+  background-color: #36eee6;
+  background-image: linear-gradient(to right, #199ed9 0, #36eee6 100%);
 }
 
-.login-actions .btn-primary:hover,
-.login-actions .btn-primary:focus {
-    background: linear-gradient(to right,#199ed9 0,#36eee6 100%);
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #36eee6;
+  background-image: linear-gradient(to right, #1375a0 0, #12d3ca 100%);
 }
 
-.login-actions .btn-primary:active {
-    background: linear-gradient(to right,#199ed9 0,#36eee6 100%);
-    background-image: radial-gradient(circle, #199ed9 10%, #36eee6 11%);
+.btn-primary:active {
+  background-color: #0ea49d !important;
 }
 
-.login-actions input[type='checkbox']:focus::after,
-.login-actions input[type='checkbox']:checked::after {
-    border-color: #199ed9;
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #36eee6;
+  background: #36eee6 linear-gradient(180deg, #199ed9, #36eee6) repeat-x;
 }
 
-.login-actions input[type='checkbox']:checked::after {
-    background-color: #199ed9;
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #199ed9;
 }
 
-.login input[type='text']:focus,
-.login input[type='password']:focus {
-    box-shadow: inset 0 -2px 0 #199ed9;
+.login input[type="text"]:focus,
+.login input[type="password"]:focus {
+  box-shadow: inset 0 -2px 0 #199ed9;
+}
+
+img.logout {
+  /*
+    Change color to #199ed9 (https://codepen.io/sosuke/pen/Pjoqqp).
+  */
+  filter: invert(47%) sepia(27%) saturate(2704%) hue-rotate(166deg)
+    brightness(99%) contrast(81%);
 }

@@ -3,9 +3,7 @@
 	"name": "RIT Orange",
 	"authorUsername": "matted",
 	"authorName": "Devin Matte",
-	"stylesheets": [
-		"../dark/dark.css"
-	],
+	"dark": true,
 	"background": {
 		"color": "#F36E21",
 		"image": "linear-gradient(#F36E21, #513127)",

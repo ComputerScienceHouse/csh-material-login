@@ -1,0 +1,3 @@
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=cacheThemes,value=false)
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=cacheTemplates,value=false)
+/subsystem=keycloak-server/theme=defaults/:write-attribute(name=staticMaxAge,value=-1)

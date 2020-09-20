@@ -3,9 +3,7 @@
 	"name": "Dark",
 	"authorUsername": "smirabito",
 	"authorName": "Steven Mirabito",
-	"stylesheets": [
-		"dark.css"
-	],
+	"dark": true,
 	"background": {
 		"color": "#333"
 	}
