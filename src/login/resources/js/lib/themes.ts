@@ -56,7 +56,7 @@ function getStylesheetsFromManifest(theme: Theme): string[] {
 function getLogoFromManifest(theme: Theme): string {
   return theme.logo
     ? themeRelativeToAbsoluteUrl(theme.id, theme.logo)
-    : `${getResourcesDir()}/img/logo.svg`;
+    : `${getResourcesDir()}img/logo.svg`;
 }
 
 function mapManifestToTheme(manifest: Theme): Theme {
