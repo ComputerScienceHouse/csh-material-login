@@ -1,0 +1,27 @@
+.login * {
+  all:  initial !important;
+}
+
+.login {
+  all: initial !important;
+}
+
+.logo {
+  display:none !important;
+}
+
+#react-root > div {
+  background-image: none !important;
+}
+
+.logout {
+  width: 1em !important;
+}
+
+.navbar-user * {
+  width: 1em !important;
+}
+
+.col-1 * {
+  width: 1em !important;
+}

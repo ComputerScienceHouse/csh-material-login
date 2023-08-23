@@ -1,0 +1,16 @@
+{
+  "id": "none",
+  "name": "None",
+  "authorUsername": "ethanf108",
+  "authorName": "Ethan Ferguson",
+    "dark": false,
+  "stylesheets": [
+     "none.css"
+  ],
+  "background": {
+    "color": "rgb(255, 255, 255)",
+    "image": "linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255))",
+    "size": "cover",
+    "repeat": "no-repeat"
+  }
+}
