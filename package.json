@@ -46,7 +46,7 @@
     "@typescript-eslint/parser": "^4.0.1",
     "archiver": "^5.0.0",
     "autoprefixer": "^9.8.6",
-    "aws-sdk": "^2.751.0",
+    "aws-sdk": "^2.814.0",
     "chokidar": "^3.4.2",
     "eslint": "^7.8.1",
     "eslint-config-airbnb-base": "^14.2.0",
